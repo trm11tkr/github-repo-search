@@ -9,5 +9,6 @@ abstract class ApiClient {
 
   Future<T> get<T>({
     required Map<String, dynamic> queryParameters,
+    required T Function(Map<String, dynamic> json) fromJson,
   });
 }
