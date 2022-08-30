@@ -10,3 +10,4 @@ targets:
         generate_for:
           include:
             - lib/feature/github_repo/model/*.dart
+            - lib/core/model/*.dart
