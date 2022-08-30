@@ -8,11 +8,27 @@ import 'package:http/http.dart' as http;
 // Project imports:
 import 'api_client.dart';
 
-final repoSearchClientProvider = Provider(
-  (_) => _RepoSearchClient(),
+/// HTTPクライアントプロバイダー
+final httpClientProvider = Provider<http.Client>(
+  (ref) => http.Client(),
 );
 
+/// リポジトリ検索プロバイダー
+final repoSearchClientProvider = Provider(
+  (ref) => _RepoSearchClient(
+    client: ref.watch(httpClientProvider),
+  ),
+);
+
+/// リポジトリ検索クライアント
 class _RepoSearchClient implements ApiClient {
+  const _RepoSearchClient({
+    required this.client,
+  });
+
+  /// HTTPクライアント
+  final http.Client client;
+
   @override
   String get host => 'api.github.com';
 
@@ -32,7 +48,7 @@ class _RepoSearchClient implements ApiClient {
   }) async {
     logger.info(Uri.https(host, path, queryParameters));
     try {
-      final response = await http
+      final response = await client
           .get(
             Uri.https(
               host,
