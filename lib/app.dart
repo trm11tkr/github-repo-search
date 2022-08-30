@@ -1,8 +1,13 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Packages imports:
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// Project imports:
 import 'package:github_repo_search/core/model/github_repos_state.dart';
 import 'package:github_repo_search/core/services/api/repo_search_client.dart';
 import 'package:github_repo_search/utils/logger.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
