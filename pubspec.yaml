@@ -22,6 +22,10 @@ dependencies:
 
     # API
   http: ^0.13.5
+  
+  # Riverpod
+  hooks_riverpod: ^1.0.4
+  flutter_hooks: ^0.18.5+1
 
 
 dev_dependencies:
