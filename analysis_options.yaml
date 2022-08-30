@@ -9,4 +9,5 @@ analyzer:
 linter:
   rules:
     sort_pub_dependencies: false
+    directives_ordering: false
     
