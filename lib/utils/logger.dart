@@ -1,4 +1,3 @@
-// Package imports:
 import 'package:simple_logger/simple_logger.dart';
 
 late SimpleLogger _logger;
