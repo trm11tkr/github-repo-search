@@ -8,5 +8,4 @@ analyzer:
 
 linter:
   rules:
-    directives_ordering: false
     

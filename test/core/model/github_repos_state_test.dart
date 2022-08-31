@@ -1,10 +1,6 @@
-// Dart imports:
 import 'dart:convert';
 
-// Packages imports:
 import 'package:flutter_test/flutter_test.dart';
-
-// Project imports:
 import 'package:github_repo_search/core/model/github_repos_state.dart';
 
 /// GithubReposStateクラスはその他のレスポンスクラスのルートにあたるので、
