@@ -11,44 +11,47 @@ class SearchFrom extends ConsumerWidget {
         TextEditingController(text: ref.watch(searchQueryProvider));
     final formKey = GlobalKey<FormState>();
 
-    return Form(
-      key: formKey,
-      child: TextFormField(
-        autocorrect: false,
-        controller: controller,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(vertical: 8),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-          ),
-          prefixIcon: const Icon(
-            Icons.search,
-            color: Colors.grey,
-          ),
-          suffixIcon: IconButton(
-            icon: const Icon(
-              Icons.clear_rounded,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Form(
+        key: formKey,
+        child: TextFormField(
+          autocorrect: false,
+          controller: controller,
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.symmetric(vertical: 8),
+            border: const OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+            ),
+            prefixIcon: const Icon(
+              Icons.search,
               color: Colors.grey,
             ),
-            onPressed: () {
-              controller.text = '';
-            },
+            suffixIcon: IconButton(
+              icon: const Icon(
+                Icons.clear_rounded,
+                color: Colors.grey,
+              ),
+              onPressed: () {
+                controller.text = '';
+              },
+            ),
+            hintText: 'Search Repository',
+            filled: true,
           ),
-          hintText: 'Search Repository',
-          filled: true,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty || value.length > 256) {
+              return 'スペースを除く、1~256文字を入力してください。';
+            }
+            return null;
+          },
+          onFieldSubmitted: (String value) {
+            if (formKey.currentState!.validate()) {
+              ref.watch(searchQueryProvider.state).update((state) => value);
+            }
+          },
         ),
-        validator: (value) {
-          if (value == null || value.trim().isEmpty || value.length > 256) {
-            return 'スペースを除く、1~256文字を入力してください。';
-          }
-          return null;
-        },
-        onFieldSubmitted: (String value) {
-          if (formKey.currentState!.validate()) {
-            ref.watch(searchQueryProvider.state).update((state) => value);
-          }
-        },
       ),
     );
   }

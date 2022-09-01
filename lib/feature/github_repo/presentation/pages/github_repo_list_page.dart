@@ -12,11 +12,14 @@ class GithubRepoListPage extends StatelessWidget {
         title: const Text('GitHub'),
       ),
       body: SafeArea(
-        child: Column(
-          children: const [
-            SearchFrom(),
-            RepoList(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Column(
+            children: const [
+              SearchFrom(),
+              RepoList(),
+            ],
+          ),
         ),
       ),
     );
