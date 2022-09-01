@@ -32,7 +32,19 @@ class RepoList extends ConsumerWidget {
             ),
           );
         },
-        onGoingError: (previousData, e, stk) {
+        onGoingError: (previousData, error, stack) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  error.toString(),
+                ),
+                duration: const Duration(milliseconds: 1500),
+              ),
+            );
+          });
+
           return RepoListBuilder(
             repos: previousData.items,
             onLoading: onLoadFunction,
