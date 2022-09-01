@@ -43,11 +43,19 @@ class PaginationNotifier
     fetchFirstBatch();
   }
 
+  // disposeされたかどうか判定(dispose = false)
+  @override
+  bool get mounted => super.mounted;
+
   final Future<RepoPaginationState> Function(RepoSearchRequestParam? param)
       fetchNextItems;
   RepoPaginationState repoPaginationState;
 
   void updateData(RepoPaginationState result) {
+    if (mounted == false) {
+      logger.info('mounted false');
+      return;
+    }
     repoPaginationState = repoPaginationState.copyWith(
       totalCount: result.totalCount,
       items: repoPaginationState.items + result.items,
