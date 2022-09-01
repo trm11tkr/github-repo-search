@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:github_repo_search/core/exceptions/api_error_response_exception.dart';
 import 'package:github_repo_search/core/model/github_repos_state.dart';
@@ -62,7 +63,14 @@ class PaginationNotifier
       final result = await fetchNextItems(null);
       updateData(result);
     } on ApiErrorResponseException catch (error, stack) {
+      logger.shout(error);
       state = PaginationState.error(error, stack);
+    } on SocketException catch (error, stack) {
+      logger.shout(error);
+      state = PaginationState.error('インターネットに接続してください', stack);
+    } on TimeoutException catch (error, stack) {
+      logger.shout(error);
+      state = PaginationState.error('タイムアウトになりました。', stack);
     }
   }
 
@@ -86,6 +94,20 @@ class PaginationNotifier
     } on ApiErrorResponseException catch (error, stack) {
       logger.shout('APIエラー発生');
       state = PaginationState.onGoingError(repoPaginationState, error, stack);
+    } on SocketException catch (error, stack) {
+      logger.shout(error);
+      state = PaginationState.onGoingError(
+        repoPaginationState,
+        'インターネットに接続してください',
+        stack,
+      );
+    } on TimeoutException catch (error, stack) {
+      logger.shout(error);
+      state = PaginationState.onGoingError(
+        repoPaginationState,
+        'タイムアウトになりました。',
+        stack,
+      );
     }
   }
 }
