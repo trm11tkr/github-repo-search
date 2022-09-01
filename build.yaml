@@ -10,8 +10,11 @@ targets:
         generate_for:
           include:
             - lib/feature/github_repo/model/*.dart
+            - lib/feature/github_repo/pagination/model/*.dart
             - lib/core/model/*.dart
             - lib/core/services/model/**/*.dart
+            - lib/core/services/model/*.dart
+
       source_gen|combining_builder:
         options:
           ignore_for_file:
