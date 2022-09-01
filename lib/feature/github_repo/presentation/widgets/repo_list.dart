@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
-import 'package:github_repo_search/feature/github_repo/provider/repo_search_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RepoList extends ConsumerWidget {
@@ -8,9 +8,10 @@ class RepoList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchResult = ref.watch(repoSearchProvider);
+    final page = ref.watch(pageProvider);
+    final onLoadFunction = ref.watch(pageProvider.notifier).fetchNextBatch;
     return Expanded(
-      child: searchResult.when(
+      child: page.when(
         data: (data) {
           return data.items.isEmpty
               ? const Center(
@@ -18,6 +19,7 @@ class RepoList extends ConsumerWidget {
                 )
               : RepoListBuilder(
                   repos: data.items,
+                  onLoading: onLoadFunction,
                 );
         },
         loading: () => const Center(
@@ -28,6 +30,18 @@ class RepoList extends ConsumerWidget {
             child: Text(
               error.toString(),
             ),
+          );
+        },
+        onGoingError: (previousData, e, stk) {
+          return RepoListBuilder(
+            repos: previousData.items,
+            onLoading: onLoadFunction,
+          );
+        },
+        onGoingLoading: (previousData) {
+          return RepoListBuilder(
+            repos: previousData.items,
+            onLoading: onLoadFunction,
           );
         },
       ),
