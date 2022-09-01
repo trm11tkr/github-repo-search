@@ -16,6 +16,7 @@ dependencies:
   hooks_riverpod: ^1.0.4
   http: ^0.13.5
   json_annotation: ^4.6.0
+  pull_to_refresh_flutter3: ^2.0.1
   simple_logger: ^1.9.0
 
 dev_dependencies:
