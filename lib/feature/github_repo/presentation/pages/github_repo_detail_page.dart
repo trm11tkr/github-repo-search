@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
+import 'package:github_repo_search/core/res/language_color.dart';
 import 'package:github_repo_search/core/widgets/thumbnail.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 
@@ -49,7 +50,22 @@ class GithubRepoDetailPage extends StatelessWidget {
                   title: 'language',
                   iconColor: Colors.blue,
                   child: repository.language != null
-                      ? Text(repository.language!)
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.fiber_manual_record,
+                              color: context.isDark
+                                  ? LanguageColors.getLanguageColor(
+                                      repository.language,
+                                    )
+                                  : LanguageColors.getLanguageColor(
+                                      repository.language,
+                                    ).withOpacity(0.8),
+                            ),
+                            Text(repository.language!),
+                          ],
+                        )
                       : const Text('-'),
                 ),
                 _CustomTile(
@@ -108,7 +124,7 @@ class _CustomTile extends StatelessWidget {
         ListTile(
           leading: Icon(
             icon,
-            color: iconColor,
+            color: context.isDark ? iconColor.withOpacity(0.8) : iconColor,
           ),
           title: Text(title),
           trailing: child,

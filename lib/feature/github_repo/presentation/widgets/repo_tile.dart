@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
+import 'package:github_repo_search/core/res/language_color.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_detail_page.dart';
 
@@ -41,15 +42,16 @@ class RepoTile extends StatelessWidget {
                 if (repository.language != null)
                   _CustomIcon(
                     context: context,
-                    iconData: Icons.language,
-                    iconColor: Colors.grey,
+                    iconData: Icons.fiber_manual_record,
+                    iconColor:
+                        LanguageColors.getLanguageColor(repository.language),
                     child: Text(repository.language!),
                   ),
                 if (repository.forksCount != 0)
                   _CustomIcon(
                     context: context,
                     iconData: Icons.star_border,
-                    iconColor: Colors.grey,
+                    iconColor: const Color(0xFFedb918),
                     child: Text(repository.stargazersCount.withAlphabet),
                   ),
                 const SizedBox(width: 5),
@@ -87,7 +89,7 @@ class _CustomIcon extends StatelessWidget {
       children: [
         Icon(
           iconData,
-          color: iconColor,
+          color: context.isDark ? iconColor.withOpacity(0.8) : iconColor,
         ),
         const SizedBox(width: 1),
         child,
