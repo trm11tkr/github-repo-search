@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
-import 'package:github_repo_search/utils/logger.dart';
+import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_detail_page.dart';
 
 class RepoTile extends StatelessWidget {
   const RepoTile({super.key, required this.repository});
@@ -12,7 +12,13 @@ class RepoTile extends StatelessWidget {
     return SafeArea(
       child: InkWell(
         onTap: () {
-          logger.info(repository.fullName);
+          Navigator.of(context).push<GithubRepoDetailPage>(
+            MaterialPageRoute(
+              builder: (context) {
+                return GithubRepoDetailPage(repository: repository);
+              },
+            ),
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
