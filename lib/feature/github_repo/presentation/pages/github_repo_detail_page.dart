@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
+import 'package:github_repo_search/core/extension/num_extension.dart';
 
 class GithubRepoDetailPage extends StatelessWidget {
   const GithubRepoDetailPage({super.key, required this.repository});
@@ -55,25 +56,28 @@ class GithubRepoDetailPage extends StatelessWidget {
                   icon: Icons.star_border,
                   title: 'star',
                   iconColor: const Color(0xFFedb918),
-                  child: Text('${repository.stargazersCount} stars'),
+                  child:
+                      Text('${repository.stargazersCount.formatComma} stars'),
                 ),
                 _CustomTile(
                   icon: Icons.remove_red_eye_outlined,
                   title: 'watch',
                   iconColor: Colors.red,
-                  child: Text('${repository.watchersCount} watching'),
+                  child:
+                      Text('${repository.watchersCount.formatComma} watching'),
                 ),
                 _CustomTile(
                   icon: Icons.fork_left,
                   title: 'fork',
                   iconColor: Colors.grey,
-                  child: Text('${repository.forksCount} forks'),
+                  child: Text('${repository.forksCount.formatComma} forks'),
                 ),
                 _CustomTile(
                   icon: Icons.adjust,
                   title: 'issue',
                   iconColor: Colors.green,
-                  child: Text('${repository.openIssuesCount} issues'),
+                  child:
+                      Text('${repository.openIssuesCount.formatComma} issues'),
                 ),
               ],
             ),
