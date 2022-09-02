@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_detail_page.dart';
@@ -26,16 +27,13 @@ class RepoTile extends StatelessWidget {
           children: [
             Text(
               repository.fullName,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: context.titleStyle.copyWith(fontWeight: FontWeight.bold),
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               repository.description,
               maxLines: 2,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: context.subTitleStyle,
               overflow: TextOverflow.ellipsis,
             ),
             Row(

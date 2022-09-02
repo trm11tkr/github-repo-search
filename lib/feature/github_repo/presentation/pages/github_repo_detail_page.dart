@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
 import 'package:github_repo_search/core/widgets/thumbnail.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
@@ -36,14 +37,12 @@ class GithubRepoDetailPage extends StatelessWidget {
                 ),
                 Text(
                   repository.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(fontSize: 20),
+                  style: context.titleStyle,
                 ),
                 const Gap(10),
                 Text(
                   repository.description,
+                  style: context.subTitleStyle,
                 ),
                 _CustomTile(
                   icon: Icons.language,
