@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
+import 'package:github_repo_search/core/widgets/thumbnail.dart';
+import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 
 class GithubRepoDetailPage extends StatelessWidget {
   const GithubRepoDetailPage({super.key, required this.repository});
@@ -26,8 +27,8 @@ class GithubRepoDetailPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(repository.owner.avatarUrl),
+                    CircleThumbnail(
+                      url: repository.owner.avatarUrl,
                     ),
                     const Gap(10),
                     Text(repository.owner.login),
