@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/core/model/github_repos_state.dart';
+import 'package:github_repo_search/core/res/app_theme.dart';
 import 'package:github_repo_search/core/services/api/repo_search_client.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_list_page.dart';
 import 'package:github_repo_search/utils/logger.dart';
@@ -12,9 +13,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GitHub Search App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: appTheme,
+      darkTheme: appThemeDark,
       home: const GithubRepoListPage(),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/widgets/retry_button.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
@@ -37,15 +38,7 @@ class RepoList extends ConsumerWidget {
         },
         onGoingError: (previousData, error, stack) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  error.toString(),
-                ),
-                duration: const Duration(milliseconds: 1500),
-              ),
-            );
+            context.showSnackBar(error.toString());
           });
 
           return RepoListBuilder(
