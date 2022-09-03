@@ -5,9 +5,9 @@ import 'package:github_repo_search/gen/colors.gen.dart';
 ThemeData get appTheme {
   final base = ThemeData(
     brightness: Brightness.light,
-    primaryColor: ColorName.primary,
   );
   return base.copyWith(
+    primaryColor: ColorName.primary,
     buttonTheme: base.buttonTheme.copyWith(
       buttonColor: ColorName.primary,
       textTheme: ButtonTextTheme.normal,
@@ -38,22 +38,16 @@ ThemeData get appTheme {
       brightness: Brightness.light,
     ),
     scaffoldBackgroundColor: ColorName.backgroundLight,
-    textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: ColorName.primary,
-      ),
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: ColorName.primary,
-      ),
-    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: ColorName.textColorDark,
-        backgroundColor: ColorName.primary,
-        textStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+      style: ButtonStyle(
+        textStyle: MaterialStateProperty.resolveWith(
+          (state) => const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        foregroundColor: MaterialStateProperty.resolveWith(
+          (state) => Colors.black,
+        ),
+        backgroundColor: MaterialStateProperty.resolveWith(
+          (state) => ColorName.primary,
         ),
       ),
     ),
@@ -117,22 +111,16 @@ ThemeData get appThemeDark {
       brightness: Brightness.dark,
     ),
     scaffoldBackgroundColor: ColorName.backgroundDark,
-    textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: ColorName.primary,
-      ),
-    ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: ColorName.primary,
-      ),
-    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: TextButton.styleFrom(
-        primary: ColorName.textColorDark,
-        backgroundColor: ColorName.primary,
-        textStyle: const TextStyle(
-          fontWeight: FontWeight.bold,
+      style: ButtonStyle(
+        textStyle: MaterialStateProperty.resolveWith(
+          (state) => const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        foregroundColor: MaterialStateProperty.resolveWith(
+          (state) => ColorName.textColorDark,
+        ),
+        backgroundColor: MaterialStateProperty.resolveWith(
+          (state) => ColorName.primary,
         ),
       ),
     ),
