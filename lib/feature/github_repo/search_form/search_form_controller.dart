@@ -3,14 +3,16 @@ import 'package:github_repo_search/utils/validation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final searchQueryProvider =
-    StateNotifierProvider<SearchNotifier, String>((ref) => SearchNotifier());
+    StateNotifierProvider<SearchFormController, String>(
+  (ref) => SearchFormController(),
+);
 
 const initialText = 'YUMEMI';
 
 const maxLength = 256;
 
-class SearchNotifier extends StateNotifier<String> {
-  SearchNotifier() : super(initialText);
+class SearchFormController extends StateNotifier<String> {
+  SearchFormController() : super(initialText);
 
   final _formKey = GlobalKey<FormState>();
   final _controller = TextEditingController(text: initialText);
@@ -18,7 +20,7 @@ class SearchNotifier extends StateNotifier<String> {
   GlobalKey<FormState> get formKey => _formKey;
   TextEditingController get controller => _controller;
 
-   String? validator(String? value) {
+  String? validator(String? value) {
     if (!Validation.hasValue(value)) {
       return 'リポジトリ名を入力してください。';
     }
@@ -30,6 +32,7 @@ class SearchNotifier extends StateNotifier<String> {
 
     return null;
   }
+
   void change(String text) {
     if (state != text) {
       state = text;
