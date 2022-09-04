@@ -7,7 +7,6 @@ ThemeData get appTheme {
     brightness: Brightness.light,
   );
   return base.copyWith(
-    primaryColor: ColorName.primary,
     buttonTheme: base.buttonTheme.copyWith(
       buttonColor: ColorName.primary,
       textTheme: ButtonTextTheme.normal,

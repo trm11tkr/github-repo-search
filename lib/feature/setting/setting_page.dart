@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/theme_mode_extension.dart';
 import 'package:github_repo_search/feature/setting/theme_controller.dart';
 import 'package:github_repo_search/gen/colors.gen.dart';
@@ -28,7 +29,9 @@ class SettingPage extends ConsumerWidget {
                 itemBuilder: (_, index) {
                   final themeMode = ThemeMode.values[index];
                   return RadioListTile<ThemeMode>(
-                    activeColor: ColorName.primary,
+                    activeColor: context.isDark
+                        ? ColorName.primary.withOpacity(0.8)
+                        : ColorName.primary,
                     value: themeMode, // ラジオボタンのvalue(ThemeModeのenum)
                     groupValue: currentThemeMode, // 現在選択されているボタン
                     onChanged: (newTheme) {
