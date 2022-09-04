@@ -16,7 +16,10 @@ class GithubRepoListPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(
-            children: const [SearchFrom(), RepoList(), TextField()],
+            children: const [
+              SearchFrom(),
+              RepoList(),
+            ],
           ),
         ),
       ),
