@@ -20,6 +20,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.6.0
   pull_to_refresh_flutter3: ^2.0.1
+  shared_preferences: ^2.0.15
   simple_logger: ^1.9.0
 
 dev_dependencies:
