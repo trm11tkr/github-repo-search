@@ -7,14 +7,14 @@ class SearchFrom extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(searchQueryProvider.notifier);
+    final searchFormController = ref.watch(searchQueryProvider.notifier);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Form(
-        key: controller.formKey,
+        key: searchFormController.formKey,
         child: TextFormField(
           autocorrect: false,
-          controller: controller.controller,
+          controller: searchFormController.textController,
           textInputAction: TextInputAction.search,
           decoration: InputDecoration(
             prefixIcon: const Icon(
@@ -27,16 +27,16 @@ class SearchFrom extends ConsumerWidget {
                 color: Colors.grey,
               ),
               onPressed: () {
-                controller.controller.text = '';
+                searchFormController.textController.text = '';
               },
             ),
             hintText: 'リポジトリを検索する。',
             filled: true,
           ),
-          validator: controller.validator,
+          validator: searchFormController.validator,
           onFieldSubmitted: (String value) {
-            if (controller.formKey.currentState!.validate()) {
-              controller.change(value.trim());
+            if (searchFormController.formKey.currentState!.validate()) {
+              searchFormController.change(value.trim());
             }
           },
         ),

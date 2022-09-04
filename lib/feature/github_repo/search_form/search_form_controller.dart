@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:github_repo_search/utils/validation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final searchQueryProvider =
-    StateNotifierProvider<SearchFormController, String>(
+final searchQueryProvider = StateNotifierProvider<SearchFormController, String>(
   (ref) => SearchFormController(),
 );
 
@@ -15,10 +14,10 @@ class SearchFormController extends StateNotifier<String> {
   SearchFormController() : super(initialText);
 
   final _formKey = GlobalKey<FormState>();
-  final _controller = TextEditingController(text: initialText);
+  final _textController = TextEditingController(text: initialText);
 
   GlobalKey<FormState> get formKey => _formKey;
-  TextEditingController get controller => _controller;
+  TextEditingController get textController => _textController;
 
   String? validator(String? value) {
     if (!Validation.hasValue(value)) {
@@ -41,7 +40,7 @@ class SearchFormController extends StateNotifier<String> {
 
   @override
   void dispose() {
-    controller.dispose();
+    textController.dispose();
     super.dispose();
   }
 }
