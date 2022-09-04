@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/utils/validation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final searchQueryProvider =
     StateNotifierProvider<SearchNotifier, String>((ref) => SearchNotifier());
 
 const initialText = 'YUMEMI';
+
+const maxLength = 256;
 
 class SearchNotifier extends StateNotifier<String> {
   SearchNotifier() : super(initialText);
@@ -15,14 +18,18 @@ class SearchNotifier extends StateNotifier<String> {
   GlobalKey<FormState> get formKey => _formKey;
   TextEditingController get controller => _controller;
 
-  String? validator(String? value) {
-    if (value == null || value.isEmpty || value.length > 256) {
-      return 'スペースを除く、1~256文字を入力してください。';
+   String? validator(String? value) {
+    if (!Validation.hasValue(value)) {
+      return 'リポジトリ名を入力してください。';
+    }
+    final notNullValue = value!;
+
+    if (!Validation.isAllowedLengthMax(notNullValue, maxLength)) {
+      return '$maxLength文字以内で入力してください。';
     }
 
     return null;
   }
-
   void change(String text) {
     if (state != text) {
       state = text;
