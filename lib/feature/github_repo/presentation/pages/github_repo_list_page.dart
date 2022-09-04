@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.dart';
-import 'package:github_repo_search/feature/github_repo/presentation/widgets/search_form.dart';
+import 'package:github_repo_search/feature/github_repo/search_form/search_form.dart';
 
 class GithubRepoListPage extends StatelessWidget {
   const GithubRepoListPage({super.key});
@@ -15,10 +15,7 @@ class GithubRepoListPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(
-            children: const [
-              SearchFrom(),
-              RepoList(),
-            ],
+            children: const [SearchFrom(), RepoList(), TextField()],
           ),
         ),
       ),
