@@ -22,6 +22,13 @@ extension ContextExtension on BuildContext {
   Color get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
   Color get errorColor => Theme.of(this).errorColor;
 
+  void hideKeyboard() {
+    final currentScope = FocusScope.of(this);
+    if (!currentScope.hasPrimaryFocus && currentScope.hasFocus) {
+      FocusManager.instance.primaryFocus?.unfocus();
+    }
+  }
+
   void showSnackBar(
     String text, {
     Duration duration = const Duration(milliseconds: 1500),
