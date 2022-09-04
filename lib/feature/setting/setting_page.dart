@@ -40,6 +40,7 @@ class SettingPage extends ConsumerWidget {
                       child: Icon(themeMode.iconData),
                     ),
                     subtitle: Text(themeMode.subtitle),
+                    selected: currentThemeMode == themeMode,
                   );
                 },
               ),

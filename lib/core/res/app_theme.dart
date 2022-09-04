@@ -51,8 +51,8 @@ ThemeData get appTheme {
         ),
       ),
     ),
-    iconTheme: base.iconTheme.copyWith(
-      color: base.primaryColor,
+    iconTheme: const IconThemeData(
+      color: ColorName.textColor,
     ),
     dividerTheme: base.dividerTheme.copyWith(
       color: ColorName.textSubColor.withAlpha(100),
@@ -124,8 +124,8 @@ ThemeData get appThemeDark {
         ),
       ),
     ),
-    iconTheme: base.iconTheme.copyWith(
-      color: base.primaryColor,
+    iconTheme: const IconThemeData(
+      color: ColorName.textSubColorDark,
     ),
     dividerTheme: base.dividerTheme.copyWith(
       color: ColorName.textSubColorDark.withAlpha(150),
