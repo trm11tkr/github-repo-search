@@ -7,7 +7,7 @@ import 'package:github_repo_search/core/model/pagination_state.dart';
 import 'package:github_repo_search/core/services/api/repo_search_client.dart';
 import 'package:github_repo_search/core/services/model/repo_search_request_param.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/model/repo_pagination_state.dart';
-import 'package:github_repo_search/feature/github_repo/provider/search_query_provider.dart';
+import 'package:github_repo_search/feature/github_repo/search_form/search_form_controller.dart';
 import 'package:github_repo_search/utils/logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
