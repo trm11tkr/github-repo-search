@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:github_repo_search/core/model/github_repos_state.dart';
 import 'package:github_repo_search/core/res/app_theme.dart';
 import 'package:github_repo_search/core/services/api/repo_search_client.dart';
-import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_list_page.dart';
+import 'package:github_repo_search/feature/navigation/navigation_page.dart';
+import 'package:github_repo_search/feature/setting/theme_controller.dart';
 import 'package:github_repo_search/utils/logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: 'GitHub Search App',
       theme: appTheme,
       darkTheme: appThemeDark,
-      home: const GithubRepoListPage(),
+      themeMode: ref.watch(themeSelectorProvider),
+      home: const NavigationPage(),
     );
   }
 }
