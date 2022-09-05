@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_list_page.dart';
 import 'package:github_repo_search/feature/setting/setting_page.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum PageType {
@@ -29,17 +30,17 @@ class NavigationPage extends ConsumerWidget {
     ];
 
     final bottomNavigationBarItems = [
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        icon: const Icon(
           Icons.manage_search_outlined,
         ),
-        label: '検索',
+        label: i18n.navLabelSearch,
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        icon: const Icon(
           Icons.settings,
         ),
-        label: '設定',
+        label: i18n.navLabelSettings,
       ),
     ];
 
