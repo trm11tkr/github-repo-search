@@ -26,11 +26,14 @@ class RepoTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// オーナー名 + リポジトリ名
             Text(
               repository.fullName,
               style: context.titleStyle.copyWith(fontWeight: FontWeight.bold),
               overflow: TextOverflow.ellipsis,
             ),
+
+            /// 概要
             Text(
               repository.description,
               maxLines: 2,
@@ -39,6 +42,7 @@ class RepoTile extends StatelessWidget {
             ),
             Row(
               children: [
+                /// 言語の種類
                 if (repository.language != null)
                   _CustomIcon(
                     context: context,
@@ -47,13 +51,17 @@ class RepoTile extends StatelessWidget {
                         LanguageColors.getLanguageColor(repository.language),
                     child: Text(repository.language!),
                   ),
-                if (repository.forksCount != 0)
+
+                /// スター数
+                if (repository.stargazersCount != 0)
                   _CustomIcon(
                     context: context,
                     iconData: Icons.star_border,
                     iconColor: const Color(0xFFedb918),
                     child: Text(repository.stargazersCount.withAlphabet),
                   ),
+
+                /// ふぉ０
                 const SizedBox(width: 5),
                 if (repository.forksCount != 0)
                   _CustomIcon(

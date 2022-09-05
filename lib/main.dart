@@ -19,10 +19,13 @@ void main() async {
   runApp(
     ProviderScope(
       overrides: [
+        /// SharedPreferences初期化(プロバイダーの上書き)
         sharedPreferencesProvider.overrideWithValue(
           await SharedPreferences.getInstance(),
         )
       ],
+
+      /// TranslationProvider: ローカライズ用プロバイダー
       child: TranslationProvider(child: const App()),
     ),
   );

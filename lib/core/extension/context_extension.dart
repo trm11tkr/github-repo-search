@@ -50,18 +50,11 @@ extension ContextExtension on BuildContext {
     ScaffoldMessenger.of(this).hideCurrentSnackBar();
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
-        content: Text(
-          text,
-          style: TextStyle(
-            color: isDark ? const Color(0xFF444444) : const Color(0xFFE6E6E6),
-          ),
-        ),
+        content: Text(text),
         duration: duration,
         action: closeLabel != null
             ? SnackBarAction(
                 label: closeLabel,
-                textColor:
-                    isDark ? const Color(0xFF444444) : const Color(0xFFE6E6E6),
                 onPressed: () {
                   if (onTap != null) {
                     onTap();
