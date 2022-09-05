@@ -9,10 +9,12 @@ class RepoListBuilder extends StatelessWidget {
     super.key,
     required this.repos,
     required this.onLoading,
+    this.hasNext = true,
   });
 
   final List<GithubRepo> repos;
   final VoidCallback onLoading;
+  final bool hasNext;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class RepoListBuilder extends StatelessWidget {
       controller: refreshController,
       footer: const SmartRefreshFooter(),
       enablePullDown: false,
-      enablePullUp: true,
+      enablePullUp: hasNext,
       physics: const BouncingScrollPhysics(),
       onLoading: () {
         onLoading();
