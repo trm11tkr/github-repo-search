@@ -31,6 +31,7 @@ dev_dependencies:
   flutter_gen_runner: ^4.3.0
   flutter_launcher_icons: ^0.10.0
   flutter_lints: ^2.0.0
+  flutter_native_splash: ^2.2.8
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
@@ -50,6 +51,17 @@ flutter_icons:
    image_path: 'assets/images/icon.png'
    adaptive_icon_background: '#fcf4ec'
    adaptive_icon_foreground: 'assets/images/icon_adaptive.png'
+
+flutter_native_splash:
+  color: '#fcf4ec'
+  image: 'assets/images/splash_image.png'
+  color_dark: '#262626'
+  image_dark: 'assets/images/splash_image.png'
+  android_12:
+    icon_background_color: '#fcf4ec'
+    image: 'assets/images/splash_image_android.png'
+    icon_background_color_dark: '#262626'
+    image_dark: 'assets/images/splash_image_android.png'
 
 flutter:
   uses-material-design: true
