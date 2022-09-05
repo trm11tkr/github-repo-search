@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/widgets/retry_button.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
+import 'package:github_repo_search/feature/github_repo/presentation/widgets/not_found.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/total_count_bar.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
@@ -23,9 +24,7 @@ class RepoList extends ConsumerWidget {
                 .update((state) => data.totalCount),
           );
           return data.items.isEmpty
-              ? Center(
-                  child: Text(i18n.notFound),
-                )
+              ? const NotFound()
               : RepoListBuilder(
                   repos: data.items,
                   onLoading: pagingController.fetchNextBatch,
