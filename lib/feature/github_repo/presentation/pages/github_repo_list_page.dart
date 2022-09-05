@@ -10,7 +10,7 @@ class GithubRepoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: context.isLandscape
           ? null
           : AppBar(
@@ -24,12 +24,19 @@ class GithubRepoListPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Column(
-            children: const [
-              SearchFrom(),
-              TotalCountBar(),
-              RepoList(),
-            ],
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            child: SizedBox(
+              height: context.deviceHeight * 0.8,
+              child: Column(
+                children: const [
+                  SearchFrom(),
+                  TotalCountBar(),
+                  RepoList(),
+                ],
+              ),
+            ),
           ),
         ),
       ),
