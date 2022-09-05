@@ -18,6 +18,7 @@ class App extends ConsumerWidget {
       themeMode: ref.watch(themeSelectorProvider),
       locale: TranslationProvider.of(context).flutterLocale,
       supportedLocales: LocaleSettings.supportedLocales,
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
