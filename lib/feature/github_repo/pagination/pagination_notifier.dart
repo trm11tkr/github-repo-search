@@ -17,7 +17,7 @@ final pageProvider = StateNotifierProvider<PaginationNotifier,
     PaginationState<RepoPaginationState>>(
   (ref) {
     final searchQuery = ref.watch(searchQueryProvider);
-    final queryParam = RepoSearchRequestParam(q: searchQuery, perPage: 10);
+    final queryParam = RepoSearchRequestParam(q: searchQuery, perPage: 30);
     return PaginationNotifier(
       fetchNextItems: (RepoSearchRequestParam? param) async {
         return ref.watch(repoSearchClientProvider).get(
