@@ -9,6 +9,7 @@
     "fork" : "フォーク数",
     "issue" : "イシュー数",
     "search" : "レポジトリを検索",
+    "totalRepo" : "合計$totalCount件",
     "settingTitle" : "設定",
     "themeTerminate" : "端末の設定",
     "themeLightMode" : "ライトモード",

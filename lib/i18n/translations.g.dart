@@ -2,7 +2,7 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 52 (26.0 per locale)
+ * Strings: 54 (27.0 per locale)
  */
 
 import 'package:flutter/widgets.dart';
@@ -317,6 +317,7 @@ class _TranslationsEn {
   String get fork => 'fork';
   String get issue => 'issue';
   String get search => 'Search Repository';
+  String totalRepo({required Object totalCount}) => 'Total: $totalCount';
   String get settingTitle => 'Settings';
   String get themeTerminate => 'Terminal Settings';
   String get themeLightMode => 'Light Mode';
@@ -364,6 +365,8 @@ class _TranslationsJa implements _TranslationsEn {
   String get issue => 'イシュー数';
   @override
   String get search => 'レポジトリを検索';
+  @override
+  String totalRepo({required Object totalCount}) => '合計$totalCount件';
   @override
   String get settingTitle => '設定';
   @override
