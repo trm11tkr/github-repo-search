@@ -19,6 +19,7 @@ class RepoList extends ConsumerWidget {
       child: page.when(
         data: (data) {
           WidgetsBinding.instance.addPostFrameCallback(
+            /// トータルカウントプロバイダーを更新
             (_) => ref
                 .watch(totalCountProvider.state)
                 .update((state) => data.totalCount),
@@ -35,6 +36,7 @@ class RepoList extends ConsumerWidget {
           child: CircularProgressIndicator(),
         ),
         error: (error, stack) {
+          /// トータルカウントプロバイダーを更新(表示させない)
           WidgetsBinding.instance.addPostFrameCallback(
             (_) => ref.watch(totalCountProvider.state).update((state) => null),
           );
