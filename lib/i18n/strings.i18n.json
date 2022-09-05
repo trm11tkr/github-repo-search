@@ -9,6 +9,7 @@
     "fork" : "fork",
     "issue" : "issue",
     "search" : "Search Repository",
+    "totalRepo" : "Total: $totalCount",
     "settingTitle" : "Settings",
     "themeTerminate" : "Terminal Settings",
     "themeLightMode" : "Light Mode",

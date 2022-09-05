@@ -3,6 +3,7 @@ import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/widgets/retry_button.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
+import 'package:github_repo_search/feature/github_repo/presentation/widgets/total_count_bar.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,6 +17,11 @@ class RepoList extends ConsumerWidget {
     return Expanded(
       child: page.when(
         data: (data) {
+          WidgetsBinding.instance.addPostFrameCallback(
+            (_) => ref
+                .watch(totalCountProvider.state)
+                .update((state) => data.totalCount),
+          );
           return data.items.isEmpty
               ? Center(
                   child: Text(i18n.notFound),
@@ -29,6 +35,9 @@ class RepoList extends ConsumerWidget {
           child: CircularProgressIndicator(),
         ),
         error: (error, stack) {
+          WidgetsBinding.instance.addPostFrameCallback(
+            (_) => ref.watch(totalCountProvider.state).update((state) => null),
+          );
           return RetryButton(
             title: error.toString(),
             textButton: ElevatedButton(
