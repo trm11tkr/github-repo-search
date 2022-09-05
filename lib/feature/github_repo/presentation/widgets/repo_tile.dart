@@ -53,7 +53,7 @@ class RepoTile extends StatelessWidget {
                   ),
 
                 /// スター数
-                if (repository.forksCount != 0)
+                if (repository.stargazersCount != 0)
                   _CustomIcon(
                     context: context,
                     iconData: Icons.star_border,
