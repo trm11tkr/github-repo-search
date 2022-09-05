@@ -12,7 +12,7 @@ class NotFound extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            Expanded(child: Assets.images.notFound.image()),
+            Flexible(child: Assets.images.notFound.image()),
             Text(i18n.notFound)
           ],
         ),
