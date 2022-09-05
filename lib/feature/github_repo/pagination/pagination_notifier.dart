@@ -48,6 +48,9 @@ class PaginationNotifier
   @override
   bool get mounted => super.mounted;
 
+  /// 追加のデータがあるかどうか
+  bool hasNext = true;
+
   final Future<RepoPaginationState> Function(RepoSearchRequestParam? param)
       fetchNextItems;
   RepoPaginationState repoPaginationState;
@@ -63,6 +66,10 @@ class PaginationNotifier
       param: result.param,
     );
     state = PaginationState.data(repoPaginationState);
+
+    if (repoPaginationState.items.length >= repoPaginationState.totalCount) {
+      hasNext = false;
+    }
   }
 
   Future<void> fetchFirstBatch() async {
@@ -84,6 +91,11 @@ class PaginationNotifier
   }
 
   Future<void> fetchNextBatch() async {
+    if (hasNext == false) {
+      logger.info('全て表示');
+      state = PaginationState.onGoingError(repoPaginationState, '全て表示しました。');
+      return;
+    }
     if (state == PaginationState.onGoingLoading(repoPaginationState)) {
       logger.info('実行中');
       return;
