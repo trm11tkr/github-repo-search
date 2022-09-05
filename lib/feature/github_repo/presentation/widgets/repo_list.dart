@@ -29,6 +29,7 @@ class RepoList extends ConsumerWidget {
               : RepoListBuilder(
                   repos: data.items,
                   onLoading: pagingController.fetchNextBatch,
+                  hasNext: pagingController.hasNext,
                 );
         },
         loading: () => const Center(
