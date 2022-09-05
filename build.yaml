@@ -1,0 +1,46 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          checked: true 
+          explicit_to_json: true
+          field_rename: snake
+      freezed:
+        generate_for:
+          include:
+            - lib/feature/github_repo/model/*.dart
+            - lib/feature/github_repo/pagination/model/*.dart
+            - lib/core/model/*.dart
+            - lib/core/services/model/**/*.dart
+            - lib/core/services/model/*.dart
+
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - type=lint
+            - implicit_dynamic_parameter
+            - implicit_dynamic_type
+            - implicit_dynamic_method
+            - strict_raw_type
+      fast_i18n:
+        options:
+          # 入力ファイルのディレクトリパス
+          input_directory: lib/i18n
+          # 入力ファイルパターン(拡張子を指定)
+          input_file_pattern: .i18n.json
+          # 出力ファイルのディレクトリパス
+          output_directory: lib/i18n
+          # 出力ファイルパターン(拡張子を指定)
+          output_file_name: translations.g.dart
+          # 出力ファイルを1つにまとめる
+          output_format: single_file
+          # アクセスする際の変数名
+          translate_var: i18n
+          # i18n['title']のようにアクセスできるか
+          flat_map: false
+          # Timestampを生成しない
+          timestamp: false
+          # 複数形への自動変換有無の設定
+          pluralization:
+            auto: off
