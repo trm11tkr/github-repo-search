@@ -11,23 +11,32 @@ class GithubRepoListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('GitHub'),
-        flexibleSpace: GestureDetector(
-          onTap: () {
-            context.hideKeyboard();
-          },
-        ),
-      ),
+      appBar: context.isLandscape
+          ? null
+          : AppBar(
+              title: const Text('GitHub'),
+              flexibleSpace: GestureDetector(
+                onTap: () {
+                  context.hideKeyboard();
+                },
+              ),
+            ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Column(
-            children: const [
-              SearchFrom(),
-              TotalCountBar(),
-              RepoList(),
-            ],
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            child: SizedBox(
+              height: context.deviceHeight * 0.8,
+              child: Column(
+                children: const [
+                  SearchFrom(),
+                  TotalCountBar(),
+                  RepoList(),
+                ],
+              ),
+            ),
           ),
         ),
       ),
