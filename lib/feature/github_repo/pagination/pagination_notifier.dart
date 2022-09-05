@@ -8,6 +8,7 @@ import 'package:github_repo_search/core/services/api/repo_search_client.dart';
 import 'package:github_repo_search/core/services/model/repo_search_request_param.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/model/repo_pagination_state.dart';
 import 'package:github_repo_search/feature/github_repo/search_form/search_form_controller.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -75,10 +76,10 @@ class PaginationNotifier
       state = PaginationState.error(error, stack);
     } on SocketException catch (error, stack) {
       logger.shout(error);
-      state = PaginationState.error('インターネットに接続してください', stack);
+      state = PaginationState.error(i18n.error422Network, stack);
     } on TimeoutException catch (error, stack) {
       logger.shout(error);
-      state = PaginationState.error('タイムアウトになりました。', stack);
+      state = PaginationState.error(i18n.error422Timeout, stack);
     }
   }
 
@@ -106,14 +107,14 @@ class PaginationNotifier
       logger.shout(error);
       state = PaginationState.onGoingError(
         repoPaginationState,
-        'インターネットに接続してください',
+        i18n.error422Network,
         stack,
       );
     } on TimeoutException catch (error, stack) {
       logger.shout(error);
       state = PaginationState.onGoingError(
         repoPaginationState,
-        'タイムアウトになりました。',
+        i18n.error422Timeout,
         stack,
       );
     }
