@@ -15,6 +15,10 @@ ThemeData get appTheme {
       backgroundColor: ColorName.primary,
       elevation: 2,
     ),
+    snackBarTheme: base.snackBarTheme.copyWith(
+      contentTextStyle: const TextStyle(color: Color(0xFFE6E6E6)),
+      actionTextColor: const Color(0xFFE6E6E6),
+    ),
     progressIndicatorTheme: base.progressIndicatorTheme.copyWith(
       color: ColorName.primary,
     ),
@@ -87,6 +91,10 @@ ThemeData get appThemeDark {
     ),
     appBarTheme: base.appBarTheme.copyWith(
       backgroundColor: ColorName.backgroundDark,
+    ),
+    snackBarTheme: base.snackBarTheme.copyWith(
+      contentTextStyle: const TextStyle(color: Color(0xFF444444)),
+      actionTextColor: const Color(0xFF444444),
     ),
     progressIndicatorTheme: base.progressIndicatorTheme.copyWith(
       color: ColorName.textColorDark,
