@@ -3,6 +3,7 @@ import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/widgets/retry_button.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RepoList extends ConsumerWidget {
@@ -16,8 +17,8 @@ class RepoList extends ConsumerWidget {
       child: page.when(
         data: (data) {
           return data.items.isEmpty
-              ? const Center(
-                  child: Text('Not Found'),
+              ? Center(
+                  child: Text(i18n.notFound),
                 )
               : RepoListBuilder(
                   repos: data.items,
@@ -32,7 +33,7 @@ class RepoList extends ConsumerWidget {
             title: error.toString(),
             textButton: ElevatedButton(
               onPressed: pagingController.fetchFirstBatch,
-              child: const Text('再試行'),
+              child: Text(i18n.retry),
             ),
           );
         },
