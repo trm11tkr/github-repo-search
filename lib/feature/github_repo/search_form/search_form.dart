@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/feature/github_repo/search_form/search_form_controller.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SearchFrom extends ConsumerWidget {
@@ -30,7 +31,7 @@ class SearchFrom extends ConsumerWidget {
                 searchFormController.textController.text = '';
               },
             ),
-            hintText: 'リポジトリを検索する。',
+            hintText: i18n.search,
             filled: true,
           ),
           validator: searchFormController.validator,
