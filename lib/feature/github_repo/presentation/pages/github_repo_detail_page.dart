@@ -5,6 +5,7 @@ import 'package:github_repo_search/core/extension/num_extension.dart';
 import 'package:github_repo_search/core/res/language_color.dart';
 import 'package:github_repo_search/core/widgets/thumbnail.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 
 class GithubRepoDetailPage extends StatelessWidget {
   const GithubRepoDetailPage({super.key, required this.repository});
@@ -47,7 +48,7 @@ class GithubRepoDetailPage extends StatelessWidget {
                 ),
                 _CustomTile(
                   icon: Icons.language,
-                  title: 'language',
+                  title: i18n.language,
                   iconColor: Colors.blue,
                   child: repository.language != null
                       ? Row(
@@ -70,30 +71,27 @@ class GithubRepoDetailPage extends StatelessWidget {
                 ),
                 _CustomTile(
                   icon: Icons.star_border,
-                  title: 'star',
+                  title: i18n.star,
                   iconColor: const Color(0xFFedb918),
-                  child:
-                      Text('${repository.stargazersCount.formatComma} stars'),
+                  child: Text(repository.stargazersCount.formatComma),
                 ),
                 _CustomTile(
                   icon: Icons.remove_red_eye_outlined,
-                  title: 'watch',
+                  title: i18n.watch,
                   iconColor: Colors.red,
-                  child:
-                      Text('${repository.watchersCount.formatComma} watching'),
+                  child: Text(repository.watchersCount.formatComma),
                 ),
                 _CustomTile(
                   icon: Icons.fork_left,
-                  title: 'fork',
+                  title: i18n.fork,
                   iconColor: Colors.grey,
-                  child: Text('${repository.forksCount.formatComma} forks'),
+                  child: Text(repository.forksCount.formatComma),
                 ),
                 _CustomTile(
                   icon: Icons.adjust,
-                  title: 'issue',
+                  title: i18n.issue,
                   iconColor: Colors.green,
-                  child:
-                      Text('${repository.openIssuesCount.formatComma} issues'),
+                  child: Text(repository.openIssuesCount.formatComma),
                 ),
               ],
             ),

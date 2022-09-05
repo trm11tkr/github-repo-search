@@ -5,6 +5,7 @@ import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/theme_mode_extension.dart';
 import 'package:github_repo_search/feature/setting/theme_controller.dart';
 import 'package:github_repo_search/gen/colors.gen.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SettingPage extends ConsumerStatefulWidget {
@@ -62,7 +63,7 @@ class SettingPageState extends ConsumerState<SettingPage>
     final currentThemeMode = ref.watch(themeSelectorProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ThemeMode select'),
+        title: Text(i18n.settingTitle),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),

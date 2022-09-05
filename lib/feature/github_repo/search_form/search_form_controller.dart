@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/validation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -21,12 +22,12 @@ class SearchFormController extends StateNotifier<String> {
 
   String? validator(String? value) {
     if (!Validation.hasValue(value)) {
-      return 'リポジトリ名を入力してください。';
+      return i18n.validationHasValue;
     }
     final notNullValue = value!;
 
     if (!Validation.isAllowedLengthMax(notNullValue, maxLength)) {
-      return '$maxLength文字以内で入力してください。';
+      return i18n.validationMaxLength(maxLength: maxLength);
     }
 
     return null;
