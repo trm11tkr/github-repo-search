@@ -198,7 +198,7 @@ packages:
     source: hosted
     version: "1.3.0"
   fast_i18n:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: fast_i18n
       url: "https://pub.dartlang.org"
@@ -258,6 +258,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_localizations:
+    dependency: "direct main"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_riverpod:
     dependency: transitive
     description:

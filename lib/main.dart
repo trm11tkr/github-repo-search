@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/logger.dart';
 import 'package:github_repo_search/utils/provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,6 +9,11 @@ import 'app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /// fast_i18n初期化
+  LocaleSettings.useDeviceLocale();
+
+  /// Logger初期化
   Logger.configure();
 
   runApp(
@@ -17,7 +23,7 @@ void main() async {
           await SharedPreferences.getInstance(),
         )
       ],
-      child: const App(),
+      child: TranslationProvider(child: const App()),
     ),
   );
 }
