@@ -52,5 +52,16 @@ flutter_icons:
    adaptive_icon_background: '#fcf4ec'
    adaptive_icon_foreground: 'assets/images/icon_adaptive.png'
 
+flutter_native_splash:
+  color: '#fcf4ec'
+  image: 'assets/images/splash_image.png'
+  color_dark: '#262626'
+  image_dark: 'assets/images/splash_image.png'
+  android_12:
+    icon_background_color: '#fcf4ec'
+    image: 'assets/images/splash_image_android.png'
+    icon_background_color_dark: '#262626'
+    image_dark: 'assets/images/splash_image_android.png'
+
 flutter:
   uses-material-design: true
