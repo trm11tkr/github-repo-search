@@ -10,15 +10,17 @@ class GithubRepoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('GitHub'),
-        flexibleSpace: GestureDetector(
-          onTap: () {
-            context.hideKeyboard();
-          },
-        ),
-      ),
+      resizeToAvoidBottomInset: true,
+      appBar: context.isLandscape
+          ? null
+          : AppBar(
+              title: const Text('GitHub'),
+              flexibleSpace: GestureDetector(
+                onTap: () {
+                  context.hideKeyboard();
+                },
+              ),
+            ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
