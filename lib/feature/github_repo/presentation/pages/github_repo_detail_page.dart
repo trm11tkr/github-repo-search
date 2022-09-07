@@ -14,7 +14,9 @@ class GithubRepoDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// SliverGridに表示する要素
     final listMap = [
+      /// 言語
       _CustomTile(
         icon: Icons.language,
         title: i18n.language,
@@ -34,24 +36,32 @@ class GithubRepoDetailPage extends StatelessWidget {
               )
             : const Text('-'),
       ),
+
+      /// スター数
       _CustomTile(
         icon: Icons.star_border,
         title: i18n.star,
         iconColor: const Color(0xFFedb918),
         child: Text(repository.stargazersCount.formatComma),
       ),
+
+      /// ウォッチ数
       _CustomTile(
         icon: Icons.remove_red_eye_outlined,
         title: i18n.watch,
         iconColor: Colors.red,
         child: Text(repository.watchersCount.formatComma),
       ),
+
+      /// フォーク数
       _CustomTile(
         icon: Icons.fork_left,
         title: i18n.fork,
         iconColor: Colors.grey,
         child: Text(repository.forksCount.formatComma),
       ),
+
+      /// イシュー数
       _CustomTile(
         icon: Icons.adjust,
         title: i18n.issue,
