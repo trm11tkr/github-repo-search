@@ -30,6 +30,7 @@ class GithubRepoDetailPage extends StatelessWidget {
                     color: LanguageColors.getLanguageColor(
                       repository.language,
                     ),
+                    size: 18,
                   ),
                   Text(repository.language!),
                 ],
@@ -158,7 +159,8 @@ class _CustomTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: Colors.white70,
         border: Border.all(
@@ -167,7 +169,7 @@ class _CustomTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -177,8 +179,11 @@ class _CustomTile extends StatelessWidget {
               Text(title),
             ],
           ),
-          const Divider(),
-          child,
+          const Divider(
+            height: 1,
+            thickness: 3,
+          ),
+          FittedBox(child: child),
         ],
       ),
     );
