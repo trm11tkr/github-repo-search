@@ -42,9 +42,22 @@ class GithubRepoDetailPage extends StatelessWidget {
                   style: context.titleStyle,
                 ),
                 const Gap(10),
-                Text(
-                  repository.description,
-                  style: context.subTitleStyle,
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      repository.description,
+                      style: context.subTitleStyle,
+                    ),
+                  ),
                 ),
                 _CustomTile(
                   icon: Icons.language,
