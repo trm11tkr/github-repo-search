@@ -92,9 +92,19 @@ class GithubRepoDetailPage extends StatelessWidget {
                   const Gap(10),
                   Center(child: Text(repository.owner.login)),
                   const Gap(30),
-                  Text(
-                    'リポジトリ：${repository.name}',
-                    style: context.titleStyle,
+                  RichText(
+                    text: TextSpan(
+                      style: context.titleStyle,
+                      children: [
+                        TextSpan(text: i18n.repository),
+                        TextSpan(
+                          text: repository.name,
+                          style: context.titleStyle.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const Gap(10),
                   Container(
