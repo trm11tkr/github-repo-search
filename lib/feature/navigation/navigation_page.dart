@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_list_page.dart';
 import 'package:github_repo_search/feature/setting/setting_page.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum PageType {
   /// リポジトリ一覧
