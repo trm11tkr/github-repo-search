@@ -3,6 +3,7 @@
     
     "notFound": "見つかりませんでした。",
     "retry" : "再試行",
+    "repository": "リポジトリ: ",
     "language" : "言語",
     "star" : "スター数",
     "watch" : "ウォッチ数",
@@ -14,8 +15,8 @@
     "themeTerminate" : "端末の設定",
     "themeLightMode" : "ライトモード",
     "themeDarkMode" : "ダークモード",
-    "error422Network" : "インタネットに接続されていません。",
-    "error422Timeout" : "タイムアウトしました。",
+    "errorNetwork" : "インタネットに接続されていません。",
+    "errorTimeout" : "タイムアウトしました。",
     "error403": "リクエスト制限です。しばらくお待ちください。",
     "error422Null" : "無効なフィールドです。",
     "error422Missing" : "リソースが存在しません。",

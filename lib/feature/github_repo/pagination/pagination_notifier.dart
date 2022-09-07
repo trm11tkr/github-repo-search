@@ -83,10 +83,10 @@ class PaginationNotifier
       state = PaginationState.error(error, stack);
     } on SocketException catch (error, stack) {
       logger.shout(error);
-      state = PaginationState.error(i18n.error422Network, stack);
+      state = PaginationState.error(i18n.errorNetwork, stack);
     } on TimeoutException catch (error, stack) {
       logger.shout(error);
-      state = PaginationState.error(i18n.error422Timeout, stack);
+      state = PaginationState.error(i18n.errorTimeout, stack);
     }
   }
 
@@ -114,14 +114,14 @@ class PaginationNotifier
       logger.shout(error);
       state = PaginationState.onGoingError(
         repoPaginationState,
-        i18n.error422Network,
+        i18n.errorNetwork,
         stack,
       );
     } on TimeoutException catch (error, stack) {
       logger.shout(error);
       state = PaginationState.onGoingError(
         repoPaginationState,
-        i18n.error422Timeout,
+        i18n.errorTimeout,
         stack,
       );
     }

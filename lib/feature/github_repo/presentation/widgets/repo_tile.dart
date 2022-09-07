@@ -61,7 +61,7 @@ class RepoTile extends StatelessWidget {
                     child: Text(repository.stargazersCount.withAlphabet),
                   ),
 
-                /// ふぉ０
+                /// フォーク数
                 const SizedBox(width: 5),
                 if (repository.forksCount != 0)
                   _CustomIcon(

@@ -2,7 +2,7 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 54 (27.0 per locale)
+ * Strings: 56 (28.0 per locale)
  */
 
 import 'package:flutter/widgets.dart';
@@ -311,6 +311,7 @@ class _TranslationsEn {
   // Translations
   String get notFound => 'Sorry... Not Found';
   String get retry => 'Retry';
+  String get repository => 'Repository: ';
   String get language => 'language';
   String get star => 'star';
   String get watch => 'watch';
@@ -322,8 +323,8 @@ class _TranslationsEn {
   String get themeTerminate => 'Terminal Settings';
   String get themeLightMode => 'Light Mode';
   String get themeDarkMode => 'Dark Mode';
-  String get error422Network => 'No Internet connection.';
-  String get error422Timeout => 'Connection timeout.';
+  String get errorNetwork => 'No Internet connection.';
+  String get errorTimeout => 'Connection timeout.';
   String get error403 => 'Request Limitations. Please wait for a while.';
   String get error422Null => 'Invalid field.';
   String get error422Missing => 'The resource does not exist.';
@@ -354,6 +355,8 @@ class _TranslationsJa implements _TranslationsEn {
   @override
   String get retry => '再試行';
   @override
+  String get repository => 'リポジトリ: ';
+  @override
   String get language => '言語';
   @override
   String get star => 'スター数';
@@ -376,9 +379,9 @@ class _TranslationsJa implements _TranslationsEn {
   @override
   String get themeDarkMode => 'ダークモード';
   @override
-  String get error422Network => 'インタネットに接続されていません。';
+  String get errorNetwork => 'インタネットに接続されていません。';
   @override
-  String get error422Timeout => 'タイムアウトしました。';
+  String get errorTimeout => 'タイムアウトしました。';
   @override
   String get error403 => 'リクエスト制限です。しばらくお待ちください。';
   @override
