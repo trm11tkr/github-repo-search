@@ -15,7 +15,7 @@ class GithubRepoDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// SliverGridに表示する要素
-    final listMap = [
+    final repoDetailTiles = [
       /// 言語
       _CustomTile(
         icon: Icons.language,
@@ -123,7 +123,7 @@ class GithubRepoDetailPage extends StatelessWidget {
                 crossAxisSpacing: 10,
                 childAspectRatio: 2,
                 crossAxisCount: context.isLandscape ? 5 : 2,
-                children: listMap,
+                children: repoDetailTiles,
               )
             ],
           ),
