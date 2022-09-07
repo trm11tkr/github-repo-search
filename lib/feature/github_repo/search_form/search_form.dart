@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/feature/github_repo/search_form/search_form_controller.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SearchFrom extends ConsumerWidget {
   const SearchFrom({super.key});

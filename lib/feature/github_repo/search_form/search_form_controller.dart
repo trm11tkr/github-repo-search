@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/validation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// 検索クエリープロバイダー
 final searchQueryProvider = StateNotifierProvider<SearchFormController, String>(

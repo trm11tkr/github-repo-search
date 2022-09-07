@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/core/exceptions/api_error_response_exception.dart';
 import 'package:github_repo_search/core/model/github_repos_state.dart';
 import 'package:github_repo_search/core/model/pagination_state.dart';
@@ -10,7 +11,6 @@ import 'package:github_repo_search/feature/github_repo/pagination/model/repo_pag
 import 'package:github_repo_search/feature/github_repo/search_form/search_form_controller.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/logger.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // ページングプロバイダー
 final pageProvider = StateNotifierProvider<PaginationNotifier,

@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/theme_mode_extension.dart';
 import 'package:github_repo_search/feature/setting/theme_controller.dart';
 import 'package:github_repo_search/gen/colors.gen.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SettingPage extends ConsumerStatefulWidget {
   const SettingPage({super.key});
