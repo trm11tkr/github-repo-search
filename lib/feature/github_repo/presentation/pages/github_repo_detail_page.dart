@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
 import 'package:github_repo_search/core/res/language_color.dart';
 import 'package:github_repo_search/core/widgets/thumbnail.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
+import 'package:github_repo_search/feature/setting/theme_controller.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 
 class GithubRepoDetailPage extends StatelessWidget {
@@ -17,7 +19,7 @@ class GithubRepoDetailPage extends StatelessWidget {
     /// SliverGridに表示する要素
     final repoDetailTiles = [
       /// 言語
-      _CustomTile(
+      _SmallTile(
         icon: Icons.language,
         title: i18n.language,
         iconColor: Colors.blue,
@@ -39,23 +41,23 @@ class GithubRepoDetailPage extends StatelessWidget {
       ),
 
       /// スター数
-      _CustomTile(
-        icon: Icons.star_border,
+      _SmallTile(
+        icon: Icons.star_rounded,
         title: i18n.star,
         iconColor: const Color(0xFFedb918),
         child: Text(repository.stargazersCount.formatComma),
       ),
 
       /// ウォッチ数
-      _CustomTile(
-        icon: Icons.remove_red_eye_outlined,
+      _SmallTile(
+        icon: Icons.remove_red_eye_rounded,
         title: i18n.watch,
-        iconColor: Colors.red,
+        iconColor: Colors.deepOrange,
         child: Text(repository.watchersCount.formatComma),
       ),
 
       /// フォーク数
-      _CustomTile(
+      _SmallTile(
         icon: Icons.fork_left,
         title: i18n.fork,
         iconColor: Colors.grey,
@@ -63,7 +65,7 @@ class GithubRepoDetailPage extends StatelessWidget {
       ),
 
       /// イシュー数
-      _CustomTile(
+      _SmallTile(
         icon: Icons.adjust,
         title: i18n.issue,
         iconColor: Colors.green,
@@ -108,25 +110,10 @@ class GithubRepoDetailPage extends StatelessWidget {
                     ),
                   ),
                   const Gap(10),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    height: 100,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white70,
-                      border: Border.all(
-                        color: Colors.grey,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: SingleChildScrollView(
-                      child: Text(
-                        repository.description,
-                        style: context.subTitleStyle,
-                      ),
-                    ),
-                  ),
-                  const Gap(20)
+
+                  /// リポジトリ概要
+                  _DescriptionTile(message: repository.description),
+                  const Gap(10)
                 ]),
               ),
               SliverGrid.count(
@@ -144,8 +131,37 @@ class GithubRepoDetailPage extends StatelessWidget {
   }
 }
 
-class _CustomTile extends StatelessWidget {
-  const _CustomTile({
+class _DescriptionTile extends ConsumerWidget {
+  const _DescriptionTile({required this.message});
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isDark = ref.watch(themeSelectorProvider.notifier).isDark(context);
+    return Container(
+      padding: const EdgeInsets.all(8),
+      height: 100,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: isDark ? null : Colors.white70,
+        border: Border.all(
+          color: context.subTitleStyle.color!,
+        ),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: SingleChildScrollView(
+        child: Text(
+          message,
+          style: context.subTitleStyle,
+        ),
+      ),
+    );
+  }
+}
+
+class _SmallTile extends ConsumerWidget {
+  const _SmallTile({
     required this.iconColor,
     required this.icon,
     required this.title,
@@ -158,11 +174,12 @@ class _CustomTile extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isDark = ref.watch(themeSelectorProvider.notifier).isDark(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: Colors.white70,
+        color: isDark ? null : Colors.white70,
         border: Border.all(
           color: context.subTitleStyle.color!,
         ),
@@ -174,7 +191,10 @@ class _CustomTile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: iconColor),
+              Icon(
+                icon,
+                color: isDark ? iconColor.withOpacity(0.8) : iconColor,
+              ),
               const Gap(5),
               Text(title),
             ],

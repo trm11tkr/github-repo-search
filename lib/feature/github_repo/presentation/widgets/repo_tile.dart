@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/extension/num_extension.dart';
 import 'package:github_repo_search/core/res/language_color.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/pages/github_repo_detail_page.dart';
+import 'package:github_repo_search/feature/setting/theme_controller.dart';
 
 class RepoTile extends StatelessWidget {
   const RepoTile({super.key, required this.repository});
@@ -56,7 +58,7 @@ class RepoTile extends StatelessWidget {
                 if (repository.stargazersCount != 0)
                   _CustomIcon(
                     context: context,
-                    iconData: Icons.star_border,
+                    iconData: Icons.star_rounded,
                     iconColor: const Color(0xFFedb918),
                     child: Text(repository.stargazersCount.withAlphabet),
                   ),
@@ -79,7 +81,7 @@ class RepoTile extends StatelessWidget {
   }
 }
 
-class _CustomIcon extends StatelessWidget {
+class _CustomIcon extends ConsumerWidget {
   const _CustomIcon({
     required this.context,
     required this.iconData,
@@ -92,12 +94,13 @@ class _CustomIcon extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isDark = ref.watch(themeSelectorProvider.notifier).isDark(context);
     return Row(
       children: [
         Icon(
           iconData,
-          color: context.isDark ? iconColor.withOpacity(0.8) : iconColor,
+          color: isDark ? iconColor.withOpacity(0.8) : iconColor,
         ),
         const SizedBox(width: 1),
         child,
