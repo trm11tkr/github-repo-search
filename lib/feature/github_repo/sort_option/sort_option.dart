@@ -22,14 +22,14 @@ enum SortOption {
   String get label {
     switch (this) {
       case SortOption.recommendation:
-        return 'おすすめ';
+        return 'オススメ順';
       case SortOption.stars:
-        return 'スターの多い順';
+        return 'スター';
 
       case SortOption.forks:
-        return 'フォークの多い順';
+        return 'フォーク';
       case SortOption.updated:
-        return '更新日順';
+        return '更新日';
     }
   }
 
