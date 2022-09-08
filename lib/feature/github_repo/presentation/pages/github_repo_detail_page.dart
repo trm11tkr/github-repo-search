@@ -42,7 +42,7 @@ class GithubRepoDetailPage extends StatelessWidget {
 
       /// スター数
       _SmallTile(
-        icon: Icons.star_border,
+        icon: Icons.star_rounded,
         title: i18n.star,
         iconColor: const Color(0xFFedb918),
         child: Text(repository.stargazersCount.formatComma),
@@ -50,9 +50,9 @@ class GithubRepoDetailPage extends StatelessWidget {
 
       /// ウォッチ数
       _SmallTile(
-        icon: Icons.remove_red_eye_outlined,
+        icon: Icons.remove_red_eye_rounded,
         title: i18n.watch,
-        iconColor: Colors.red,
+        iconColor: Colors.deepOrange,
         child: Text(repository.watchersCount.formatComma),
       ),
 
@@ -193,7 +193,7 @@ class _SmallTile extends ConsumerWidget {
             children: [
               Icon(
                 icon,
-                color: isDark ? Colors.grey : iconColor,
+                color: isDark ? iconColor.withOpacity(0.8) : iconColor,
               ),
               const Gap(5),
               Text(title),
