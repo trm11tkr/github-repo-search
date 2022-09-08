@@ -3,6 +3,7 @@
     
     "notFound": "Sorry... Not Found",
     "retry" : "Retry",
+    "repository" : "Repository: ",
     "language" : "language",
     "star" : "star",
     "watch" : "watch",
@@ -14,8 +15,8 @@
     "themeTerminate" : "Terminal Settings",
     "themeLightMode" : "Light Mode",
     "themeDarkMode" : "Dark Mode",
-    "error422Network" : "No Internet connection.",
-    "error422Timeout" : "Connection timeout.",
+    "errorNetwork" : "No Internet connection.",
+    "errorTimeout" : "Connection timeout.",
     "error403": "Request Limitations. Please wait for a while.",
     "error422Null" : "Invalid field.",
     "error422Missing" : "The resource does not exist.",

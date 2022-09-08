@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/utils/provider.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// SharedPreferences で使用するテーマ保存用のキー
 const _themePrefsKey = 'selectedTheme';
@@ -33,5 +34,14 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   Future<void> changeAndSave(ThemeMode theme) async {
     await _prefs.setInt(_themePrefsKey, theme.index);
     state = theme;
+  }
+
+  /// ダークモード判定
+  bool isDark(BuildContext context) {
+    if (state == ThemeMode.system) {
+      return context.isDark;
+    } else {
+      return state == ThemeMode.dark;
+    }
   }
 }

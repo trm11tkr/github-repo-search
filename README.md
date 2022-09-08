@@ -7,7 +7,8 @@
 
 ### デモ動画
 
-https://user-images.githubusercontent.com/89247188/188501634-5a620a97-12d5-47fa-b064-0b36c3d6d8b1.mov
+https://user-images.githubusercontent.com/89247188/189135959-19d9eb91-8142-47c2-b5e3-8d3c8f8253ac.MOV
+
 
 ### 環境
 - Flutter 3.3.0 • channel stable • https://github.com/flutter/flutter.git</br>
@@ -25,7 +26,7 @@ Flutter SDK 3.3.0(stable)の更新に伴い、iOSの最小対象OSバージョ�
 私の実行環境では、OS Version 9.0の環境を用意することができなかったため、テンプレート通り11.0に設定しました。m(_ _)m
 
 ### 実行方法
-0. 本プロジェクトではfvmを使用しているため、fvmをインストールされている方はinstallコマンドがご利用できます。<br>
+0. 本プロジェクトではfvmを使用しているため、[fvm](https://fvm.app/)をインストールされている方はinstallコマンドがご利用できます。<br>
 ```
 fvm install
 ```
@@ -90,44 +91,46 @@ flutter run --debug
 ### アプリアイコン
 <img src = 'https://user-images.githubusercontent.com/89247188/188437439-f8518233-d95a-46e9-8de9-439132975ce4.png' width = '200'>
 
-### 各画面
-#### GitHubリポジトリ
+## 各画面
+### GitHubリポジトリ
 
 |リポジトリ一覧|リポジトリ詳細|
-| :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/188506306-a063a09d-84cd-4319-a6fa-3656034507e1.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/188506167-69afdacb-4f5d-41ef-82aa-7c4e3d04a7cd.PNG' width = '300'>|
+|:---:|:---:|
+|<img src ='https://user-images.githubusercontent.com/89247188/189128357-8f9c6057-5d53-41bb-b763-996a635f1ae0.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128372-ae8c3cc5-b392-448a-ad73-aee189a0d37e.PNG' width = '300'>|
 
-#### 初回検索結果
+### GitHubリポジトリ(ダークモード)
 
-|0件|エラー|
-|:---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/188506170-1468472d-ce73-4229-b750-1b00c25ef15a.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/188506173-7cc07199-1111-4f60-a1ad-d02339aa410c.PNG' width = '300'>|
+|リポジトリ一覧（ダークモード）|リポジトリ詳細（ダークモード）|
+|:---:|:---:|
+<img src ='https://user-images.githubusercontent.com/89247188/189128694-86ec54e0-c683-44bf-9205-f474636abb78.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128836-72058c3e-9cbc-442a-b39c-bc97c27572bc.PNG' width = '300'>|
 
-#### 設定
 
-|端末の設定|ライトモード|ダークモード|
-| :---: | :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/188506271-cfe30f79-bc4a-45df-966e-4e061814483a.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/188506274-cb3e8b60-3640-4fe2-8c02-1efb5713645e.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/188506179-355fe07a-390b-4eff-9763-470f96d1a9c4.PNG' width = '300'>|
+### その他
 
-#### 横画面対応
+|検索結果が0件|初回エラー画面|設定画面|
+|:---: | :---: | :---: |
+|<img src ='https://user-images.githubusercontent.com/89247188/189130117-89c520be-fb64-4b4d-bd08-feab58436fc6.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189130120-1e172dd0-10bf-4713-9369-b4a5d6774eda.PNG' width = '300'>|<img src = 'https://user-images.githubusercontent.com/89247188/189130602-5bc654a2-bd78-4f9d-aad5-e8c766d00ace.PNG' width = '300'>|
+
+
+### 横画面対応
 
 |検索画面|リポジトリ詳細画面|
 | :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/188509319-8ec9b3ee-f622-41a6-8cc3-171b884cab1b.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/188509320-399fa815-d1b0-4f20-9e66-cee1f50db232.PNG' width = '450'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189132071-e962a626-c2cd-47b6-8e14-f77c7af68f8d.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/189131954-5859715e-6ea5-4b35-85f6-2e7b37a394c1.gif' width = '450'>|
 |設定画面|検索結果0件画面|
-|<img src ='https://user-images.githubusercontent.com/89247188/188509321-a5c3982c-303a-48c7-a42e-fe9828d042c4.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/188509322-f4a2623b-808c-4bdb-a10a-835e252f81e4.PNG' width = '450'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189132194-63a2fe2f-c0ec-4e82-9809-337ae29173f8.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/189132185-a4ac1b73-2a55-49aa-8ed5-cdc4bb4ca917.PNG' width = '450'>|
 
 
-#### 多言語対応(en, ja)
+### 多言語対応(en, ja)
 一部のみ抜粋
-|レポジトリ詳細(en)|検索結果0件(en)|設定(en)|
+|レポジトリ一覧(en)|リポジトリ詳細(en)|設定(en)|
 | :---: | :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/188507160-6209c30e-671a-4a95-9091-e3a35e3c9016.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/188507158-dd5df6eb-049a-45b6-9e95-5dd0bddf18df.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/188507154-6585e949-2797-477a-929d-9fe97c5d9785.PNG' width = '300'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189133921-21f2f311-b495-470a-8646-76e1c8119e02.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189133913-8c93c999-ebda-4ac4-8355-84a343e4b75e.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189133902-7241ea69-8d7f-45af-a384-b9dabfc75cec.PNG' width = '300'>|
 
 #### アニメーション
 - タイルをタップすると、ディスプレイモードの変更と共にアイコンが1回転します。
 
-https://user-images.githubusercontent.com/89247188/188507599-0c048ff7-dc56-4064-b191-9f011dcbfb7b.mov
+https://user-images.githubusercontent.com/89247188/189133547-e56e513f-0af4-414d-9007-2bb8bc5bd125.MP4
 
 ### アピールポイント
 #### コーディングにおいて
@@ -144,3 +147,4 @@ https://user-images.githubusercontent.com/89247188/188507599-0c048ff7-dc56-4064-
 - アニメーション。
 - ページング処理においてローディングやエラー時にユーザに煩わしさを感じさせない挙動を意識しました。
 - 検索画面における横画面はどうしても圧迫感があるので、AppBarを非表示にしました。
+- 詳細画面のデザインにこだわりました。（是非横画面にしてみてください！）

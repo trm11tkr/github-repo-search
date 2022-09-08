@@ -13,12 +13,11 @@ dependencies:
   fast_i18n: ^5.12.6
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.18.5+1
   flutter_localizations:
     sdk: flutter         
+  flutter_riverpod: ^1.0.4
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
-  hooks_riverpod: ^1.0.4
   http: ^0.13.5
   intl: ^0.17.0
   json_annotation: ^4.6.0
@@ -67,3 +66,14 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/not_found.png
+
+  fonts:
+    - family: MPLUSRounded1c
+      fonts:
+        - asset: assets/fonts/MPLUSRounded1c-Medium.ttf
+        - asset: assets/fonts/MPLUSRounded1c-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/MPLUSRounded1c-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/MPLUSRounded1c-ExtraBold.ttf
+          weight: 900

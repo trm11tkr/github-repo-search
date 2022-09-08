@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/core/extension/context_extension.dart';
 import 'package:github_repo_search/core/widgets/retry_button.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
@@ -6,7 +7,6 @@ import 'package:github_repo_search/feature/github_repo/presentation/widgets/not_
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/total_count_bar.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RepoList extends ConsumerWidget {
   const RepoList({super.key});

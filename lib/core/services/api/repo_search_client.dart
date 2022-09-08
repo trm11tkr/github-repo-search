@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_search/core/exceptions/api_error_response_exception.dart';
 import 'package:github_repo_search/core/services/model/error/client_error.dart';
 import 'package:github_repo_search/utils/logger.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
 
 import 'api_client.dart';
