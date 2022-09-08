@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_repo_search/i18n/translations.g.dart';
 
 /// ソートオプションプロバイダー
 final sortOptionProvider =
@@ -22,19 +23,21 @@ enum SortOption {
   String get label {
     switch (this) {
       case SortOption.recommendation:
-        return 'オススメ順';
+        return i18n.sort_recommendation;
       case SortOption.stars:
-        return 'スター';
+        return i18n.sort_star;
 
       case SortOption.forks:
-        return 'フォーク';
+        return i18n.sort_fork;
       case SortOption.updated:
-        return '更新日';
+        return i18n.sort_updated;
     }
   }
 
+  /// 実際にクエリに仕様する文字列
   String? get toQuery {
     switch (this) {
+      /// recommendationはデフォルト値
       case SortOption.recommendation:
         return null;
       case SortOption.stars:
