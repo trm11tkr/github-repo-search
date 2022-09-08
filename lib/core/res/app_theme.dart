@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/gen/colors.gen.dart';
+import 'package:github_repo_search/gen/fonts.gen.dart';
 
 ThemeData get appTheme {
   final base = ThemeData(
@@ -13,26 +14,47 @@ ThemeData get appTheme {
     ),
     appBarTheme: base.appBarTheme.copyWith(
       backgroundColor: ColorName.primary,
+      titleTextStyle: const TextStyle(
+        fontSize: 40,
+        fontFamily: FontFamily.mPLUSRounded1c,
+        fontWeight: FontWeight.w900,
+      ),
       elevation: 2,
     ),
     snackBarTheme: base.snackBarTheme.copyWith(
-      contentTextStyle: const TextStyle(color: Color(0xFFE6E6E6)),
+      contentTextStyle: const TextStyle(
+        color: Color(0xFFE6E6E6),
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
       actionTextColor: const Color(0xFFE6E6E6),
     ),
     progressIndicatorTheme: base.progressIndicatorTheme.copyWith(
       color: ColorName.primary,
     ),
     textTheme: base.textTheme.copyWith(
-      titleMedium: base.textTheme.titleMedium!
-          .copyWith(fontSize: 16, color: ColorName.textColor),
-      titleSmall: base.textTheme.titleSmall!
-          .copyWith(fontSize: 14, color: ColorName.textSubColor),
+      titleMedium: base.textTheme.titleMedium!.copyWith(
+        fontSize: 16,
+        color: ColorName.textColor,
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
+      titleSmall: base.textTheme.titleSmall!.copyWith(
+        fontSize: 14,
+        color: ColorName.textSubColor,
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
+      bodyMedium: base.textTheme.bodyMedium!.copyWith(
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
     ),
     floatingActionButtonTheme: base.floatingActionButtonTheme.copyWith(
       backgroundColor: ColorName.primary,
       foregroundColor: Colors.white,
     ),
     bottomNavigationBarTheme: base.bottomNavigationBarTheme.copyWith(
+      selectedLabelStyle:
+          const TextStyle(fontFamily: FontFamily.mPLUSRounded1c),
+      unselectedLabelStyle:
+          const TextStyle(fontFamily: FontFamily.mPLUSRounded1c),
       backgroundColor: ColorName.textFieldColor,
       selectedItemColor: ColorName.primary,
       unselectedItemColor: Colors.black.withOpacity(0.4),
@@ -44,11 +66,14 @@ ThemeData get appTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.resolveWith(
-          (state) => const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          (state) => const TextStyle(
+            fontFamily: FontFamily.mPLUSRounded1c,
+            fontWeight: FontWeight.w700,
+            fontSize: 25,
+          ),
         ),
-        foregroundColor: MaterialStateProperty.resolveWith(
-          (state) => Colors.black,
-        ),
+        foregroundColor:
+            MaterialStateProperty.resolveWith((state) => Colors.white),
         backgroundColor: MaterialStateProperty.resolveWith(
           (state) => ColorName.primary,
         ),
@@ -61,6 +86,7 @@ ThemeData get appTheme {
       color: ColorName.textSubColor.withAlpha(100),
     ),
     inputDecorationTheme: base.inputDecorationTheme.copyWith(
+      errorStyle: const TextStyle(fontFamily: FontFamily.mPLUSRounded1c),
       border: const OutlineInputBorder(
         borderSide: BorderSide.none,
       ),
@@ -69,9 +95,6 @@ ThemeData get appTheme {
     textSelectionTheme: base.textSelectionTheme.copyWith(
       cursorColor: ColorName.primary,
       selectionHandleColor: ColorName.primary,
-    ),
-    listTileTheme: base.listTileTheme.copyWith(
-      selectedColor: Colors.yellow,
     ),
     checkboxTheme: base.checkboxTheme.copyWith(
       fillColor: MaterialStateProperty.all(
@@ -90,26 +113,47 @@ ThemeData get appThemeDark {
       textTheme: ButtonTextTheme.normal,
     ),
     appBarTheme: base.appBarTheme.copyWith(
+      titleTextStyle: const TextStyle(
+        fontSize: 40,
+        fontFamily: FontFamily.mPLUSRounded1c,
+        fontWeight: FontWeight.w900,
+      ),
       backgroundColor: ColorName.backgroundDark,
     ),
     snackBarTheme: base.snackBarTheme.copyWith(
-      contentTextStyle: const TextStyle(color: Color(0xFF444444)),
+      contentTextStyle: const TextStyle(
+        color: Color(0xFF444444),
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
       actionTextColor: const Color(0xFF444444),
     ),
     progressIndicatorTheme: base.progressIndicatorTheme.copyWith(
       color: ColorName.textColorDark,
     ),
     textTheme: base.textTheme.copyWith(
-      titleMedium: base.textTheme.titleMedium!
-          .copyWith(fontSize: 16, color: ColorName.textColorDark),
-      titleSmall: base.textTheme.titleSmall!
-          .copyWith(fontSize: 14, color: ColorName.textSubColorDark),
+      titleMedium: base.textTheme.titleMedium!.copyWith(
+        fontSize: 16,
+        color: ColorName.textColorDark,
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
+      titleSmall: base.textTheme.titleSmall!.copyWith(
+        fontSize: 14,
+        color: ColorName.textSubColorDark,
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
+      bodyMedium: base.textTheme.bodyMedium!.copyWith(
+        fontFamily: FontFamily.mPLUSRounded1c,
+      ),
     ),
     floatingActionButtonTheme: base.floatingActionButtonTheme.copyWith(
       backgroundColor: ColorName.primary,
       foregroundColor: Colors.white,
     ),
     bottomNavigationBarTheme: base.bottomNavigationBarTheme.copyWith(
+      selectedLabelStyle:
+          const TextStyle(fontFamily: FontFamily.mPLUSRounded1c),
+      unselectedLabelStyle:
+          const TextStyle(fontFamily: FontFamily.mPLUSRounded1c),
       backgroundColor: ColorName.textFieldColorDark,
       selectedItemColor: ColorName.primary,
       unselectedItemColor: ColorName.textSubColorDark,
@@ -121,7 +165,11 @@ ThemeData get appThemeDark {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.resolveWith(
-          (state) => const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          (state) => const TextStyle(
+            fontFamily: FontFamily.mPLUSRounded1c,
+            fontWeight: FontWeight.w700,
+            fontSize: 25,
+          ),
         ),
         foregroundColor: MaterialStateProperty.resolveWith(
           (state) => ColorName.textColorDark,
@@ -142,6 +190,7 @@ ThemeData get appThemeDark {
       selectionHandleColor: ColorName.textSubColorDark,
     ),
     inputDecorationTheme: base.inputDecorationTheme.copyWith(
+      errorStyle: const TextStyle(fontFamily: FontFamily.mPLUSRounded1c),
       border: const OutlineInputBorder(
         borderSide: BorderSide.none,
       ),

@@ -66,3 +66,14 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/not_found.png
+
+  fonts:
+    - family: MPLUSRounded1c
+      fonts:
+        - asset: assets/fonts/MPLUSRounded1c-Medium.ttf
+        - asset: assets/fonts/MPLUSRounded1c-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/MPLUSRounded1c-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/MPLUSRounded1c-ExtraBold.ttf
+          weight: 900
