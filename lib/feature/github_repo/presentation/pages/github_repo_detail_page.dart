@@ -7,6 +7,7 @@ import 'package:github_repo_search/core/res/language_color.dart';
 import 'package:github_repo_search/core/widgets/thumbnail.dart';
 import 'package:github_repo_search/feature/github_repo/model/github_repo.dart';
 import 'package:github_repo_search/feature/setting/theme_controller.dart';
+import 'package:github_repo_search/gen/fonts.gen.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 
 class GithubRepoDetailPage extends StatelessWidget {
@@ -77,6 +78,10 @@ class GithubRepoDetailPage extends StatelessWidget {
         title: Text(
           repository.fullName,
           overflow: TextOverflow.ellipsis,
+          style: context.appBarTitleStyle.copyWith(
+            fontFamily: FontFamily.mPLUSRounded1c,
+            fontSize: 20,
+          ),
         ),
       ),
       body: SafeArea(

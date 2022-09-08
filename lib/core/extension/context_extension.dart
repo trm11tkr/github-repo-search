@@ -25,6 +25,7 @@ extension ContextExtension on BuildContext {
   Color get errorColor => Theme.of(this).errorColor;
 
   /// テキストスタイル
+  TextStyle get appBarTitleStyle => Theme.of(this).appBarTheme.titleTextStyle!;
   TextStyle get titleStyle => Theme.of(this).textTheme.titleMedium!;
   TextStyle get subTitleStyle => Theme.of(this).textTheme.titleSmall!;
   TextStyle get bodyStyle => Theme.of(this).textTheme.bodyText2!;
