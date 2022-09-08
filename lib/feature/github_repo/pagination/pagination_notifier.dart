@@ -9,6 +9,7 @@ import 'package:github_repo_search/core/services/api/repo_search_client.dart';
 import 'package:github_repo_search/core/services/model/repo_search_request_param.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/model/repo_pagination_state.dart';
 import 'package:github_repo_search/feature/github_repo/search_form/search_form_controller.dart';
+import 'package:github_repo_search/feature/github_repo/sort_option/sort_option.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/logger.dart';
 
@@ -17,7 +18,12 @@ final pageProvider = StateNotifierProvider<PaginationNotifier,
     PaginationState<RepoPaginationState>>(
   (ref) {
     final searchQuery = ref.watch(searchQueryProvider);
-    final queryParam = RepoSearchRequestParam(q: searchQuery, perPage: 30);
+    final sortOption = ref.watch(sortOptionProvider);
+    final queryParam = RepoSearchRequestParam(
+      q: searchQuery,
+      perPage: 30,
+      sort: sortOption.toQuery,
+    );
     return PaginationNotifier(
       fetchNextItems: (RepoSearchRequestParam? param) async {
         return ref.watch(repoSearchClientProvider).get(
