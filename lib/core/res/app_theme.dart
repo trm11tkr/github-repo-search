@@ -32,6 +32,10 @@ ThemeData get appTheme {
       color: ColorName.primary,
     ),
     textTheme: base.textTheme.copyWith(
+      titleLarge: base.textTheme.titleLarge!.copyWith(
+        fontFamily: FontFamily.mPLUSRounded1c,
+        fontWeight: FontWeight.w700,
+      ),
       titleMedium: base.textTheme.titleMedium!.copyWith(
         fontSize: 16,
         color: ColorName.textColor,
@@ -61,6 +65,7 @@ ThemeData get appTheme {
     ),
     cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
       brightness: Brightness.light,
+      primaryColor: ColorName.primary,
     ),
     scaffoldBackgroundColor: ColorName.backgroundLight,
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -101,6 +106,19 @@ ThemeData get appTheme {
         base.primaryColor,
       ),
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: ColorName.primary,
+        textStyle: const TextStyle(
+          fontFamily: FontFamily.mPLUSRounded1c,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    ),
+    toggleableActiveColor: ColorName.primary,
+    dialogTheme: base.dialogTheme.copyWith(
+      titleTextStyle: const TextStyle(color: Colors.red),
+    ),
   );
 }
 
@@ -131,6 +149,10 @@ ThemeData get appThemeDark {
       color: ColorName.textColorDark,
     ),
     textTheme: base.textTheme.copyWith(
+      titleLarge: base.textTheme.titleLarge!.copyWith(
+        fontFamily: FontFamily.mPLUSRounded1c,
+        fontWeight: FontWeight.w700,
+      ),
       titleMedium: base.textTheme.titleMedium!.copyWith(
         fontSize: 16,
         color: ColorName.textColorDark,
@@ -158,8 +180,9 @@ ThemeData get appThemeDark {
       selectedItemColor: ColorName.primary,
       unselectedItemColor: ColorName.textSubColorDark,
     ),
-    cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
+    cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
       brightness: Brightness.dark,
+      primaryColor: ColorName.primary.withOpacity(0.8),
     ),
     scaffoldBackgroundColor: ColorName.backgroundDark,
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -201,5 +224,15 @@ ThemeData get appThemeDark {
         base.primaryColor,
       ),
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: ColorName.textColorDark,
+        textStyle: const TextStyle(
+          fontFamily: FontFamily.mPLUSRounded1c,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    ),
+    toggleableActiveColor: ColorName.primary.withOpacity(0.8),
   );
 }

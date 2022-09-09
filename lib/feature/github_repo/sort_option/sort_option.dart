@@ -37,6 +37,7 @@ enum SortOption {
   /// 実際にクエリに仕様する文字列
   String? get toQuery {
     switch (this) {
+
       /// recommendationはデフォルト値
       case SortOption.recommendation:
         return null;
