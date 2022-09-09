@@ -7,7 +7,8 @@
 
 ### デモ動画
 
-https://user-images.githubusercontent.com/89247188/189135959-19d9eb91-8142-47c2-b5e3-8d3c8f8253ac.MOV
+
+https://user-images.githubusercontent.com/89247188/189343524-61755d4e-4a29-4569-ba27-40c5296b2bf0.MP4
 
 
 ### 環境
@@ -96,36 +97,36 @@ flutter run --debug
 
 |リポジトリ一覧|リポジトリ詳細|
 |:---:|:---:|
-|<img src ='https://user-images.githubusercontent.com/89247188/189128357-8f9c6057-5d53-41bb-b763-996a635f1ae0.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128372-ae8c3cc5-b392-448a-ad73-aee189a0d37e.PNG' width = '300'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189344187-a6a7a958-780a-4c8c-bf22-5babeeda1644.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128372-ae8c3cc5-b392-448a-ad73-aee189a0d37e.PNG' width = '300'>|
+
 
 ### GitHubリポジトリ(ダークモード)
 
 |リポジトリ一覧（ダークモード）|リポジトリ詳細（ダークモード）|
 |:---:|:---:|
-<img src ='https://user-images.githubusercontent.com/89247188/189128694-86ec54e0-c683-44bf-9205-f474636abb78.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128836-72058c3e-9cbc-442a-b39c-bc97c27572bc.PNG' width = '300'>|
-
+<img src ='https://user-images.githubusercontent.com/89247188/189344255-4964de48-ef5d-48f4-ba55-66ceb045c3fd.png' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128836-72058c3e-9cbc-442a-b39c-bc97c27572bc.PNG' width = '300'>|
 
 ### その他
 
 |検索結果が0件|初回エラー画面|設定画面|
 |:---: | :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/189130117-89c520be-fb64-4b4d-bd08-feab58436fc6.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189130120-1e172dd0-10bf-4713-9369-b4a5d6774eda.PNG' width = '300'>|<img src = 'https://user-images.githubusercontent.com/89247188/189130602-5bc654a2-bd78-4f9d-aad5-e8c766d00ace.PNG' width = '300'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189346214-c7dfb0bc-a4f5-4275-83ed-5e0ac52fdbea.png' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189346222-1630b8a9-0f00-473e-ac4f-17be43dab48e.png' width = '300'>|<img src = 'https://user-images.githubusercontent.com/89247188/189130602-5bc654a2-bd78-4f9d-aad5-e8c766d00ace.PNG' width = '300'>|
 
 
 ### 横画面対応
 
 |検索画面|リポジトリ詳細画面|
 | :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/189132071-e962a626-c2cd-47b6-8e14-f77c7af68f8d.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/189131954-5859715e-6ea5-4b35-85f6-2e7b37a394c1.gif' width = '450'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189346339-f29ec915-eb17-4a1b-8adf-c36d382291a4.png' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/189131954-5859715e-6ea5-4b35-85f6-2e7b37a394c1.gif' width = '450'>|
 |設定画面|検索結果0件画面|
-|<img src ='https://user-images.githubusercontent.com/89247188/189132194-63a2fe2f-c0ec-4e82-9809-337ae29173f8.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/189132185-a4ac1b73-2a55-49aa-8ed5-cdc4bb4ca917.PNG' width = '450'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189132194-63a2fe2f-c0ec-4e82-9809-337ae29173f8.PNG' width = '450'>|<img src ='https://user-images.githubusercontent.com/89247188/189346343-27beb1f9-3c57-4fb7-bc77-a9dade54e71b.png' width = '450'>|
 
 
 ### 多言語対応(en, ja)
 一部のみ抜粋
 |レポジトリ一覧(en)|リポジトリ詳細(en)|設定(en)|
 | :---: | :---: | :---: |
-|<img src ='https://user-images.githubusercontent.com/89247188/189133921-21f2f311-b495-470a-8646-76e1c8119e02.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189133913-8c93c999-ebda-4ac4-8355-84a343e4b75e.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189133902-7241ea69-8d7f-45af-a384-b9dabfc75cec.PNG' width = '300'>|
+|<img src ='https://user-images.githubusercontent.com/89247188/189346799-7cdb8bc8-1e65-46f1-879c-a5c79c595003.png' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189133913-8c93c999-ebda-4ac4-8355-84a343e4b75e.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189133902-7241ea69-8d7f-45af-a384-b9dabfc75cec.PNG' width = '300'>|
 
 #### アニメーション
 - タイルをタップすると、ディスプレイモードの変更と共にアイコンが1回転します。
@@ -142,9 +143,10 @@ https://user-images.githubusercontent.com/89247188/189133547-e56e513f-0af4-414d-
   - GitHub Actionsによる静的解析
   - 多言語対応
   - API通信によるページング処理
-#### デザイン面
+#### UI/UX
 - 言語の色をGitHubで設定されているものを利用することでUIがすごく向上したと思います。
 - アニメーション。
 - ページング処理においてローディングやエラー時にユーザに煩わしさを感じさせない挙動を意識しました。
 - 検索画面における横画面はどうしても圧迫感があるので、AppBarを非表示にしました。
 - 詳細画面のデザインにこだわりました。（是非横画面にしてみてください！）
+- 並び順をユーザが選択できるようにしました。
