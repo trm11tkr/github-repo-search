@@ -106,6 +106,13 @@ flutter run --debug
 |:---:|:---:|
 <img src ='https://user-images.githubusercontent.com/89247188/189344255-4964de48-ef5d-48f4-ba55-66ceb045c3fd.png' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189128836-72058c3e-9cbc-442a-b39c-bc97c27572bc.PNG' width = '300'>|
 
+### ソートモード選択
+
+|iOS|Android|
+|:---:|:---:|
+<img src ='https://user-images.githubusercontent.com/89247188/189883816-44a4fe1f-b725-4dd0-8b3f-284cdf056d7b.PNG' width = '300'>|<img src ='https://user-images.githubusercontent.com/89247188/189884162-a5f49759-784d-47bc-b5f3-e1ecfb0c7cdb.png' width = '300'>|
+
+
 ### その他
 
 |検索結果が0件|初回エラー画面|設定画面|
