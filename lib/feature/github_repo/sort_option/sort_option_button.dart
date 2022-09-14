@@ -66,7 +66,7 @@ class SortOptionButton extends ConsumerWidget {
                       Expanded(
                         child: ListView.builder(
                           itemBuilder: (context, index) {
-                            // 現在地のソートオプションはアイコンでわかりやすく
+                            // 現在のソートオプションはアイコンでわかりやすく
                             final optionTile =
                                 optionList[index].label == sortOption.label
                                     ? Row(

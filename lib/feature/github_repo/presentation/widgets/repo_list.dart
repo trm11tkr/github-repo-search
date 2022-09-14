@@ -5,7 +5,6 @@ import 'package:github_repo_search/core/widgets/retry_button.dart';
 import 'package:github_repo_search/feature/github_repo/pagination/pagination_notifier.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/not_found.dart';
 import 'package:github_repo_search/feature/github_repo/presentation/widgets/repo_list.builder.dart';
-import 'package:github_repo_search/feature/github_repo/presentation/widgets/total_count_bar.dart';
 import 'package:github_repo_search/i18n/translations.g.dart';
 
 class RepoList extends ConsumerWidget {
@@ -18,12 +17,6 @@ class RepoList extends ConsumerWidget {
     return Expanded(
       child: page.when(
         data: (data) {
-          WidgetsBinding.instance.addPostFrameCallback(
-            /// トータルカウントプロバイダーを更新
-            (_) => ref
-                .watch(totalCountProvider.state)
-                .update((state) => data.totalCount),
-          );
           return data.items.isEmpty
               ? const NotFound()
               : RepoListBuilder(
@@ -36,10 +29,6 @@ class RepoList extends ConsumerWidget {
           child: CircularProgressIndicator(),
         ),
         error: (error, stack) {
-          /// トータルカウントプロバイダーを更新(表示させない)
-          WidgetsBinding.instance.addPostFrameCallback(
-            (_) => ref.watch(totalCountProvider.state).update((state) => null),
-          );
           return RetryButton(
             title: error.toString(),
             textButton: ElevatedButton(
