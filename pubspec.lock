@@ -232,13 +232,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
-  fast_i18n:
-    dependency: "direct main"
-    description:
-      name: fast_i18n
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.12.6"
   ffi:
     dependency: transitive
     description:
@@ -719,6 +712,27 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slang:
+    dependency: "direct main"
+    description:
+      name: slang
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.7.0"
+  slang_build_runner:
+    dependency: "direct dev"
+    description:
+      name: slang_build_runner
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.7.0"
+  slang_flutter:
+    dependency: "direct main"
+    description:
+      name: slang_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.7.0"
   source_gen:
     dependency: transitive
     description:
