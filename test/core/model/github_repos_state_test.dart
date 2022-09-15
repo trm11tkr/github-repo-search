@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:github_repo_search/core/model/github_repos_state.dart';
 
-/// GithubReposStateクラスはその他のレスポンスクラスのルートにあたるので、
-/// GithubReposStateクラスのfromJsonのテストのみで、デコードが機能していることを確認できる。
+// GithubReposStateクラスはその他のレスポンスクラスのルートにあたるので、
+// GithubReposStateクラスのfromJsonのテストのみで、デコードが機能していることを確認できる。
 
 void main() {
   // https://api.github.com/search/repositories?q=dtrupenn/Tetris
@@ -125,25 +125,46 @@ void main() {
     final totalCount = result.totalCount;
     final repositories = result.items;
 
+    expect(totalCount == 0, false);
     expect(totalCount, 1);
 
     // 実際に取得するデータのみを抜粋してテスト
+    expect(repositories[0].id == 0, false);
     expect(repositories[0].id, 3081286);
+
+    expect(repositories[0].name == '', false);
     expect(repositories[0].name, 'Tetris');
+
+    expect(repositories[0].fullName == '', false);
     expect(repositories[0].fullName, 'dtrupenn/Tetris');
+
+    expect(repositories[0].owner.login == '', false);
     expect(repositories[0].owner.login, 'dtrupenn');
+
+    expect(repositories[0].owner.avatarUrl == '', false);
     expect(
       repositories[0].owner.avatarUrl,
       'https://avatars.githubusercontent.com/u/872147?v=4',
     );
+
+    expect(repositories[0].description == '', false);
     expect(
       repositories[0].description,
       'A C implementation of Tetris using Pennsim through LC4',
     );
+    expect(repositories[0].stargazersCount == 0, false);
     expect(repositories[0].stargazersCount, 6);
+
+    expect(repositories[0].watchersCount == 0, false);
     expect(repositories[0].watchersCount, 6);
+
+    expect(repositories[0].language == '', false);
     expect(repositories[0].language, 'Assembly');
+
+    expect(repositories[0].forksCount == 0, false);
     expect(repositories[0].forksCount, 2);
+
+    expect(repositories[0].openIssuesCount == 1, false);
     expect(repositories[0].openIssuesCount, 0);
   });
 }

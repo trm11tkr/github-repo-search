@@ -3,10 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_search/core/extension/color_extension.dart';
 
-/// ref: https://github.com/ozh/github-colors/blob/master/colors.json
+// ref: https://github.com/ozh/github-colors/blob/master/colors.json
 class LanguageColors {
   LanguageColors._();
 
+  /// プログラミング言語の色を返す
   static Color getLanguageColor(String? language) {
     if (languageColor.containsKey(language)) {
       final hexCode = languageColor[language]!['color'];

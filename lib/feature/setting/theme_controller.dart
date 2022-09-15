@@ -13,7 +13,7 @@ final themeSelectorProvider =
 
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   ThemeModeNotifier(this._read) : super(ThemeMode.system) {
-    /// `SharedPreferences` を使用して、記憶しているテーマがあれば取得して反映する。
+    // `SharedPreferences` を使用して、記憶しているテーマがあれば取得して反映する。
     final themeIndex = _prefs.getInt(_themePrefsKey);
     if (themeIndex == null) {
       return;
@@ -27,16 +27,16 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
 
   final Reader _read;
 
-  /// 選択したテーマを保存するためのローカル保存領域
+  // 選択したテーマを保存するためのローカル保存領域
   late final _prefs = _read(sharedPreferencesProvider);
 
-  /// テーマの変更と保存を行う
+  // テーマの変更と保存を行う
   Future<void> changeAndSave(ThemeMode theme) async {
     await _prefs.setInt(_themePrefsKey, theme.index);
     state = theme;
   }
 
-  /// ダークモード判定
+  // ダークモード判定
   bool isDark(BuildContext context) {
     if (state == ThemeMode.system) {
       return context.isDark;

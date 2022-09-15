@@ -48,6 +48,7 @@ extension ContextExtension on BuildContext {
     VoidCallback? onTap,
     String? closeLabel,
   }) {
+    // 連続タップ対策として以前のスナックバーを非表示に
     ScaffoldMessenger.of(this).hideCurrentSnackBar();
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(

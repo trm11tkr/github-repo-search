@@ -20,7 +20,7 @@ class SettingPageState extends ConsumerState<SettingPage>
   late AnimationController _controller;
   late Animation<double> _rotateAnimation;
 
-  /// アニメーション実行
+  // アニメーション実行
   void _animationChange() {
     // 一度リセットしてから実行
     _controller
@@ -41,14 +41,14 @@ class SettingPageState extends ConsumerState<SettingPage>
       setState(() {});
     });
 
-    ///アニメーションの挙動
+    // アニメーションの挙動
     _rotateAnimation = Tween<double>(
       begin: 0,
       end: 2 * pi,
     ).animate(_controller);
   }
 
-  /// コントローラー破棄
+  // コントローラー破棄
   @override
   void dispose() {
     _controller.dispose();
@@ -82,16 +82,16 @@ class SettingPageState extends ConsumerState<SettingPage>
                     value: themeMode,
                     groupValue: currentThemeMode,
                     onChanged: (newTheme) {
-                      /// Themeの保存
+                      // Themeの保存
                       themeSelector.changeAndSave(newTheme!);
 
-                      /// アニメーション実行
+                      // アニメーション実行
                       _animationChange();
                     },
                     title: Align(
                       alignment: Alignment.centerLeft,
 
-                      /// 選択されたThemeのIconだけがアニメーションを実行
+                      // 選択されたThemeのIconだけがアニメーションを実行
                       child: currentThemeMode == themeMode
                           ? AnimatedBuilder(
                               animation: _controller,

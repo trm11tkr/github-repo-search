@@ -1,14 +1,16 @@
-/*
- * Generated file. Do not edit.
- *
- * Locales: 2
- * Strings: 56 (28.0 per locale)
- */
+/// Generated file. Do not edit.
+///
+/// Locales: 2
+/// Strings: 66 (33 per locale)
+
+// coverage:ignore-file
+// ignore_for_file: type=lint
 
 import 'package:flutter/widgets.dart';
+import 'package:slang_flutter/slang_flutter.dart';
+export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.en;
-AppLocale _currLocale = _baseLocale;
 
 /// Supported locales, see extension methods below.
 ///
@@ -16,20 +18,39 @@ AppLocale _currLocale = _baseLocale;
 /// - LocaleSettings.setLocale(AppLocale.en) // set locale
 /// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
-enum AppLocale {
-  en, // 'en' (base locale, fallback)
-  ja, // 'ja'
+enum AppLocale with BaseAppLocale<_TranslationsEn> {
+  en(languageCode: 'en', build: _TranslationsEn.build),
+  ja(languageCode: 'ja', build: _TranslationsJa.build);
+
+  const AppLocale(
+      {required this.languageCode,
+      this.scriptCode,
+      this.countryCode,
+      required this.build}); // ignore: unused_element
+
+  @override
+  final String languageCode;
+  @override
+  final String? scriptCode;
+  @override
+  final String? countryCode;
+  @override
+  final TranslationBuilder<_TranslationsEn> build;
+
+  /// Gets current instance managed by [LocaleSettings].
+  _TranslationsEn get translations =>
+      LocaleSettings.instance.translationMap[this]!;
 }
 
 /// Method A: Simple
 ///
 /// No rebuild after locale change.
 /// Translation happens during initialization of the widget (call of i18n).
+/// Configurable via 'translate_var'.
 ///
 /// Usage:
 /// String a = i18n.someKey.anotherKey;
-_TranslationsEn _i18n = _currLocale.translations;
-_TranslationsEn get i18n => _i18n;
+_TranslationsEn get i18n => LocaleSettings.instance.currentTranslations;
 
 /// Method B: Advanced
 ///
@@ -48,263 +69,92 @@ _TranslationsEn get i18n => _i18n;
 class Translations {
   Translations._(); // no constructor
 
-  static _TranslationsEn of(BuildContext context) {
-    final inheritedWidget =
-        context.dependOnInheritedWidgetOfExactType<_InheritedLocaleData>();
-    if (inheritedWidget == null) {
-      throw 'Please wrap your app with "TranslationProvider".';
-    }
-    return inheritedWidget.translations;
-  }
+  static _TranslationsEn of(BuildContext context) =>
+      InheritedLocaleData.of<AppLocale, _TranslationsEn>(context).translations;
 }
 
-class LocaleSettings {
-  LocaleSettings._(); // no constructor
+/// The provider for method B
+class TranslationProvider
+    extends BaseTranslationProvider<AppLocale, _TranslationsEn> {
+  TranslationProvider({required super.child})
+      : super(
+          initLocale: LocaleSettings.instance.currentLocale,
+          initTranslations: LocaleSettings.instance.currentTranslations,
+        );
 
-  /// Uses locale of the device, fallbacks to base locale.
-  /// Returns the locale which has been set.
-  static AppLocale useDeviceLocale() {
-    final locale = AppLocaleUtils.findDeviceLocale();
-    return setLocale(locale);
-  }
+  static InheritedLocaleData<AppLocale, _TranslationsEn> of(
+          BuildContext context) =>
+      InheritedLocaleData.of<AppLocale, _TranslationsEn>(context);
+}
 
-  /// Sets locale
-  /// Returns the locale which has been set.
-  static AppLocale setLocale(AppLocale locale) {
-    _currLocale = locale;
-    _i18n = _currLocale.translations;
+/// Method B shorthand via [BuildContext] extension method.
+/// Configurable via 'translate_var'.
+///
+/// Usage (e.g. in a widget's build method):
+/// context.i18n.someKey.anotherKey
+extension BuildContextTranslationsExtension on BuildContext {
+  _TranslationsEn get i18n => TranslationProvider.of(this).translations;
+}
 
-    // force rebuild if TranslationProvider is used
-    _translationProviderKey.currentState?.setLocale(_currLocale);
+/// Manages all translation instances and the current locale
+class LocaleSettings
+    extends BaseFlutterLocaleSettings<AppLocale, _TranslationsEn> {
+  LocaleSettings._()
+      : super(
+          locales: AppLocale.values,
+          baseLocale: _baseLocale,
+          utils: AppLocaleUtils.instance,
+        );
 
-    return _currLocale;
-  }
+  static final instance = LocaleSettings._();
 
-  /// Sets locale using string tag (e.g. en_US, de-DE, fr)
-  /// Fallbacks to base locale.
-  /// Returns the locale which has been set.
-  static AppLocale setLocaleRaw(String rawLocale) {
-    final locale = AppLocaleUtils.parse(rawLocale);
-    return setLocale(locale);
-  }
-
-  /// Gets current locale.
-  static AppLocale get currentLocale {
-    return _currLocale;
-  }
-
-  /// Gets base locale.
-  static AppLocale get baseLocale {
-    return _baseLocale;
-  }
-
-  /// Gets supported locales in string format.
-  static List<String> get supportedLocalesRaw {
-    return AppLocale.values.map((locale) => locale.languageTag).toList();
-  }
-
-  /// Gets supported locales (as Locale objects) with base locale sorted first.
-  static List<Locale> get supportedLocales {
-    return AppLocale.values.map((locale) => locale.flutterLocale).toList();
-  }
+  // static aliases (checkout base methods for documentation)
+  static AppLocale get currentLocale => instance.currentLocale;
+  static Stream<AppLocale> getLocaleStream() => instance.getLocaleStream();
+  static AppLocale setLocale(AppLocale locale) => instance.setLocale(locale);
+  static AppLocale setLocaleRaw(String rawLocale) =>
+      instance.setLocaleRaw(rawLocale);
+  static AppLocale useDeviceLocale() => instance.useDeviceLocale();
+  static List<Locale> get supportedLocales => instance.supportedLocales;
+  static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
+  static void setPluralResolver(
+          {String? language,
+          AppLocale? locale,
+          PluralResolver? cardinalResolver,
+          PluralResolver? ordinalResolver}) =>
+      instance.setPluralResolver(
+        language: language,
+        locale: locale,
+        cardinalResolver: cardinalResolver,
+        ordinalResolver: ordinalResolver,
+      );
 }
 
 /// Provides utility functions without any side effects.
-class AppLocaleUtils {
-  AppLocaleUtils._(); // no constructor
+class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, _TranslationsEn> {
+  AppLocaleUtils._()
+      : super(baseLocale: _baseLocale, locales: AppLocale.values);
 
-  /// Returns the locale of the device as the enum type.
-  /// Fallbacks to base locale.
-  static AppLocale findDeviceLocale() {
-    final String? deviceLocale =
-        WidgetsBinding.instance.window.locale.toLanguageTag();
-    if (deviceLocale != null) {
-      final typedLocale = _selectLocale(deviceLocale);
-      if (typedLocale != null) {
-        return typedLocale;
-      }
-    }
-    return _baseLocale;
-  }
+  static final instance = AppLocaleUtils._();
 
-  /// Returns the enum type of the raw locale.
-  /// Fallbacks to base locale.
-  static AppLocale parse(String rawLocale) {
-    return _selectLocale(rawLocale) ?? _baseLocale;
-  }
-}
-
-// context enums
-
-// interfaces generated as mixins
-
-// translation instances
-
-late _TranslationsEn _translationsEn = _TranslationsEn.build();
-late _TranslationsJa _translationsJa = _TranslationsJa.build();
-
-// extensions for AppLocale
-
-extension AppLocaleExtensions on AppLocale {
-  /// Gets the translation instance managed by this library.
-  /// [TranslationProvider] is using this instance.
-  /// The plural resolvers are set via [LocaleSettings].
-  _TranslationsEn get translations {
-    switch (this) {
-      case AppLocale.en:
-        return _translationsEn;
-      case AppLocale.ja:
-        return _translationsJa;
-    }
-  }
-
-  /// Gets a new translation instance.
-  /// [LocaleSettings] has no effect here.
-  /// Suitable for dependency injection and unit tests.
-  ///
-  /// Usage:
-  /// final t = AppLocale.en.build(); // build
-  /// String a = t.my.path; // access
-  _TranslationsEn build() {
-    switch (this) {
-      case AppLocale.en:
-        return _TranslationsEn.build();
-      case AppLocale.ja:
-        return _TranslationsJa.build();
-    }
-  }
-
-  String get languageTag {
-    switch (this) {
-      case AppLocale.en:
-        return 'en';
-      case AppLocale.ja:
-        return 'ja';
-    }
-  }
-
-  Locale get flutterLocale {
-    switch (this) {
-      case AppLocale.en:
-        return const Locale.fromSubtags(languageCode: 'en');
-      case AppLocale.ja:
-        return const Locale.fromSubtags(languageCode: 'ja');
-    }
-  }
-}
-
-extension StringAppLocaleExtensions on String {
-  AppLocale? toAppLocale() {
-    switch (this) {
-      case 'en':
-        return AppLocale.en;
-      case 'ja':
-        return AppLocale.ja;
-      default:
-        return null;
-    }
-  }
-}
-
-// wrappers
-
-GlobalKey<_TranslationProviderState> _translationProviderKey =
-    GlobalKey<_TranslationProviderState>();
-
-class TranslationProvider extends StatefulWidget {
-  TranslationProvider({required this.child})
-      : super(key: _translationProviderKey);
-
-  final Widget child;
-
-  @override
-  _TranslationProviderState createState() => _TranslationProviderState();
-
-  static _InheritedLocaleData of(BuildContext context) {
-    final inheritedWidget =
-        context.dependOnInheritedWidgetOfExactType<_InheritedLocaleData>();
-    if (inheritedWidget == null) {
-      throw 'Please wrap your app with "TranslationProvider".';
-    }
-    return inheritedWidget;
-  }
-}
-
-class _TranslationProviderState extends State<TranslationProvider> {
-  AppLocale locale = _currLocale;
-
-  void setLocale(AppLocale newLocale) {
-    setState(() {
-      locale = newLocale;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _InheritedLocaleData(
-      locale: locale,
-      child: widget.child,
-    );
-  }
-}
-
-class _InheritedLocaleData extends InheritedWidget {
-  final AppLocale locale;
-  Locale get flutterLocale => locale.flutterLocale; // shortcut
-  final _TranslationsEn translations; // store translations to avoid switch call
-
-  _InheritedLocaleData({required this.locale, required Widget child})
-      : translations = locale.translations,
-        super(child: child);
-
-  @override
-  bool updateShouldNotify(_InheritedLocaleData oldWidget) {
-    return oldWidget.locale != locale;
-  }
-}
-
-// pluralization feature not used
-
-// helpers
-
-final _localeRegex =
-    RegExp(r'^([a-z]{2,8})?([_-]([A-Za-z]{4}))?([_-]?([A-Z]{2}|[0-9]{3}))?$');
-AppLocale? _selectLocale(String localeRaw) {
-  final match = _localeRegex.firstMatch(localeRaw);
-  AppLocale? selected;
-  if (match != null) {
-    final language = match.group(1);
-    final country = match.group(5);
-
-    // match exactly
-    selected = AppLocale.values.cast<AppLocale?>().firstWhere(
-        (supported) => supported?.languageTag == localeRaw.replaceAll('_', '-'),
-        orElse: () => null);
-
-    if (selected == null && language != null) {
-      // match language
-      selected = AppLocale.values.cast<AppLocale?>().firstWhere(
-          (supported) => supported?.languageTag.startsWith(language) == true,
-          orElse: () => null);
-    }
-
-    if (selected == null && country != null) {
-      // match country
-      selected = AppLocale.values.cast<AppLocale?>().firstWhere(
-          (supported) => supported?.languageTag.contains(country) == true,
-          orElse: () => null);
-    }
-  }
-  return selected;
+  // static aliases (checkout base methods for documentation)
+  static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
+  static AppLocale findDeviceLocale() => instance.findDeviceLocale();
 }
 
 // translations
 
 // Path: <root>
-class _TranslationsEn {
+class _TranslationsEn implements BaseTranslations {
   /// You can call this constructor and build your own translation instance of this locale.
   /// Constructing via the enum [AppLocale.build] is preferred.
-  _TranslationsEn.build();
+  _TranslationsEn.build(
+      {PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+      : _cardinalResolver = cardinalResolver,
+        _ordinalResolver = ordinalResolver;
+
+  final PluralResolver? _cardinalResolver; // ignore: unused_field
+  final PluralResolver? _ordinalResolver; // ignore: unused_field
 
   late final _TranslationsEn _root = this; // ignore: unused_field
 
@@ -318,6 +168,11 @@ class _TranslationsEn {
   String get fork => 'fork';
   String get issue => 'issue';
   String get search => 'Search Repository';
+  String get sort => 'Sort';
+  String get sort_recommendation => 'Recommendation';
+  String get sort_star => 'Stars';
+  String get sort_fork => 'Forks';
+  String get sort_updated => 'Updated';
   String totalRepo({required Object totalCount}) => 'Total: $totalCount';
   String get settingTitle => 'Settings';
   String get themeTerminate => 'Terminal Settings';
@@ -344,7 +199,15 @@ class _TranslationsEn {
 class _TranslationsJa implements _TranslationsEn {
   /// You can call this constructor and build your own translation instance of this locale.
   /// Constructing via the enum [AppLocale.build] is preferred.
-  _TranslationsJa.build();
+  _TranslationsJa.build(
+      {PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+      : _cardinalResolver = cardinalResolver,
+        _ordinalResolver = ordinalResolver;
+
+  @override
+  final PluralResolver? _cardinalResolver; // ignore: unused_field
+  @override
+  final PluralResolver? _ordinalResolver; // ignore: unused_field
 
   @override
   late final _TranslationsJa _root = this; // ignore: unused_field
@@ -368,6 +231,16 @@ class _TranslationsJa implements _TranslationsEn {
   String get issue => 'イシュー数';
   @override
   String get search => 'レポジトリを検索';
+  @override
+  String get sort => '並び替え';
+  @override
+  String get sort_recommendation => 'おすすめ順';
+  @override
+  String get sort_star => 'スター';
+  @override
+  String get sort_fork => 'フォーク';
+  @override
+  String get sort_updated => '更新日';
   @override
   String totalRepo({required Object totalCount}) => '合計$totalCount件';
   @override
