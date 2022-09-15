@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:github_repo_search/core/model/github_repos_state.dart';
 
-/// GithubReposStateクラスはその他のレスポンスクラスのルートにあたるので、
-/// GithubReposStateクラスのfromJsonのテストのみで、デコードが機能していることを確認できる。
+// GithubReposStateクラスはその他のレスポンスクラスのルートにあたるので、
+// GithubReposStateクラスのfromJsonのテストのみで、デコードが機能していることを確認できる。
 
 void main() {
   // https://api.github.com/search/repositories?q=dtrupenn/Tetris

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:github_repo_search/gen/colors.gen.dart';
 import 'package:github_repo_search/gen/fonts.gen.dart';
 
+/// ライトモード
 ThemeData get appTheme {
   final base = ThemeData(
     brightness: Brightness.light,
@@ -122,6 +123,7 @@ ThemeData get appTheme {
   );
 }
 
+///　ダークモード
 ThemeData get appThemeDark {
   final base = ThemeData.from(colorScheme: const ColorScheme.dark());
   return base.copyWith(

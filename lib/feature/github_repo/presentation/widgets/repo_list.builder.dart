@@ -23,6 +23,7 @@ class RepoListBuilder extends StatelessWidget {
       controller: refreshController,
       footer: const SmartRefreshFooter(),
       enablePullDown: false,
+      // 次のデータがない場合は引っ張れないようにする
       enablePullUp: hasNext,
       physics: const BouncingScrollPhysics(),
       onLoading: () {

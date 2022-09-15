@@ -8,8 +8,10 @@ final searchQueryProvider = StateNotifierProvider<SearchFormController, String>(
   (ref) => SearchFormController(),
 );
 
+/// 起動時の検索ワード
 const initialText = 'YUMEMI';
 
+/// 最大入力可能数
 const maxLength = 256;
 
 class SearchFormController extends StateNotifier<String> {
@@ -34,7 +36,9 @@ class SearchFormController extends StateNotifier<String> {
     return null;
   }
 
+  /// stateを[text]で更新
   void change(String text) {
+    // 前回値と同じなら更新しない
     if (state != text) {
       state = text;
     }

@@ -38,7 +38,7 @@ enum SortOption {
   String? get toQuery {
     switch (this) {
 
-      /// recommendationはデフォルト値
+      // recommendationはデフォルト値
       case SortOption.recommendation:
         return null;
       case SortOption.stars:

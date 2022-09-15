@@ -63,7 +63,7 @@ class _RepoSearchClient implements ApiClient {
       logger.info('success');
       return fromJson(jsonData);
     }
-
+    // エラーレスポンスをJsonからparseしてエラーを投げる。
     final apiErrorResponse = ClientError.fromJson(jsonData);
 
     throw ApiErrorResponseException(
