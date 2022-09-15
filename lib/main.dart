@@ -10,22 +10,22 @@ import 'app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// fast_i18n初期化
+  // fast_i18n初期化
   LocaleSettings.useDeviceLocale();
 
-  /// Logger初期化
+  // Logger初期化
   Logger.configure();
 
   runApp(
     ProviderScope(
       overrides: [
-        /// SharedPreferences初期化(プロバイダーの上書き)
+        // SharedPreferences初期化(プロバイダーの上書き)
         sharedPreferencesProvider.overrideWithValue(
           await SharedPreferences.getInstance(),
         )
       ],
 
-      /// TranslationProvider: ローカライズ用プロバイダー
+      // TranslationProvider: ローカライズ用プロバイダー
       child: TranslationProvider(child: const App()),
     ),
   );

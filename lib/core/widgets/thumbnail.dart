@@ -80,6 +80,7 @@ class CircleThumbnail extends StatelessWidget {
       child: Material(
         type: MaterialType.transparency,
         child: isLoading == true
+            // ローディング中
             ? loadingWidget ??
                 Center(
                   child: SizedBox(
@@ -88,6 +89,7 @@ class CircleThumbnail extends StatelessWidget {
                     child: const CupertinoActivityIndicator(),
                   ),
                 )
+            // ローディング後
             : image(),
       ),
     );

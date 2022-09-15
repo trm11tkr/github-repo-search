@@ -12,12 +12,14 @@ class GithubRepoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // キーボードのレイヤーを分ける
       resizeToAvoidBottomInset: false,
       appBar: context.isLandscape
           ? null
           : AppBar(
               title: const Text('GitHub'),
               flexibleSpace: GestureDetector(
+                // タップでキーボードを閉じる
                 onTap: () {
                   context.hideKeyboard();
                 },

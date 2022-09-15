@@ -9,6 +9,7 @@ class Logger {
   static void configure() {
     _logger = SimpleLogger()
       ..setLevel(
+        // リリースビルドの場合レベルOFF
         kReleaseMode ? Level.OFF : Level.FINE,
       );
   }

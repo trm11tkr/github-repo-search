@@ -136,6 +136,7 @@ class GithubRepoDetailPage extends StatelessWidget {
   }
 }
 
+/// 概要表示Widget
 class _DescriptionTile extends ConsumerWidget {
   const _DescriptionTile({required this.message});
 

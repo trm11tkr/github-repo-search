@@ -13,12 +13,17 @@ import 'package:github_repo_search/feature/github_repo/sort_option/sort_option.d
 import 'package:github_repo_search/i18n/translations.g.dart';
 import 'package:github_repo_search/utils/logger.dart';
 
-// ページングプロバイダー
+/// ページングプロバイダー
 final pageProvider = StateNotifierProvider<PaginationNotifier,
     PaginationState<RepoPaginationState>>(
   (ref) {
+    // 検索ワードを監視
     final searchQuery = ref.watch(searchQueryProvider);
+
+    // ソートオプションを監視
     final sortOption = ref.watch(sortOptionProvider);
+
+    // クエリパラメータを生成
     final queryParam = RepoSearchRequestParam(
       q: searchQuery,
       perPage: 30,
@@ -50,22 +55,26 @@ class PaginationNotifier
     fetchFirstBatch();
   }
 
-  // disposeされたかどうか判定(dispose = false)
+  /// disposeされたかどうか判定(dispose = false)
   @override
   bool get mounted => super.mounted;
 
   /// 追加のデータがあるかどうか
   bool hasNext = true;
 
+  /// [RepoSearchRequestParam]を用いてAPI通信
   final Future<RepoPaginationState> Function(RepoSearchRequestParam? param)
       fetchNextItems;
   RepoPaginationState repoPaginationState;
 
+  /// 実際にデータを反映
   void updateData(RepoPaginationState result) {
+    // PaginationNotifierがdisposeされていたら何もしない
     if (mounted == false) {
       logger.info('mounted false');
       return;
     }
+    // 取得データをもとにrepoPaginationStateの更新
     repoPaginationState = repoPaginationState.copyWith(
       totalCount: result.totalCount,
       items: repoPaginationState.items + result.items,
@@ -73,11 +82,13 @@ class PaginationNotifier
     );
     state = PaginationState.data(repoPaginationState);
 
+    // 次のデータがあるかチェック
     if (repoPaginationState.items.length >= repoPaginationState.totalCount) {
       hasNext = false;
     }
   }
 
+  /// 初回データの取得
   Future<void> fetchFirstBatch() async {
     try {
       state = const PaginationState.loading();
@@ -96,7 +107,9 @@ class PaginationNotifier
     }
   }
 
+  /// 2回目以降のデータの取得
   Future<void> fetchNextBatch() async {
+    // API通信をしている場合、重ねて通信をしない
     if (state == PaginationState.onGoingLoading(repoPaginationState)) {
       logger.info('実行中');
       return;

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 extension HexColor on Color {
-  // hexカラーコードから色を抽出
+  /// hexカラーコードから色を抽出
   static Color fromHex(String? hexString) {
+    // nullの場合はColors.greyに統一
     if (hexString == null) {
       return Colors.grey;
     }

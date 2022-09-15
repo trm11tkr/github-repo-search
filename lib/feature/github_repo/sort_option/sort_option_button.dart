@@ -11,7 +11,6 @@ class SortOptionButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    /// 現在のソートオプション
     final sortOption = ref.watch(sortOptionProvider);
     final sortOptionController = ref.watch(sortOptionProvider.state);
     return IconButton(
@@ -91,6 +90,7 @@ class SortOptionButton extends ConsumerWidget {
                                 } else {
                                   selectedOption = null;
                                 }
+                                // 選択された値を返して、シートを閉じる
                                 Navigator.of(context).pop(selectedOption);
                               },
                             );
@@ -103,7 +103,7 @@ class SortOptionButton extends ConsumerWidget {
                 },
               );
 
-        /// ソートオプションが変更された場合プロバイダーを更新
+        // ソートオプションが変更された場合プロバイダーを更新
         if (result != null) {
           sortOptionController.update((state) => result);
         }
