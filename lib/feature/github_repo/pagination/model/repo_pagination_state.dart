@@ -8,6 +8,7 @@ part 'repo_pagination_state.freezed.dart';
 @freezed
 class RepoPaginationState with _$RepoPaginationState {
   const factory RepoPaginationState({
+    @Default(true) bool hasNext,
     @Default(0) int totalCount,
     @Default(<GithubRepo>[]) List<GithubRepo> items,
     required RepoSearchRequestParam param,
