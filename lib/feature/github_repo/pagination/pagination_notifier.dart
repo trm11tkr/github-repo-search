@@ -59,9 +59,6 @@ class PaginationNotifier
   @override
   bool get mounted => super.mounted;
 
-  /// 追加のデータがあるかどうか
-  bool hasNext = true;
-
   /// [RepoSearchRequestParam]を用いてAPI通信
   final Future<RepoPaginationState> Function(RepoSearchRequestParam? param)
       fetchNextItems;
@@ -76,16 +73,13 @@ class PaginationNotifier
     }
     // 取得データをもとにrepoPaginationStateの更新
     repoPaginationState = repoPaginationState.copyWith(
+      hasNext:
+          result.totalCount > (repoPaginationState.items + result.items).length,
       totalCount: result.totalCount,
       items: repoPaginationState.items + result.items,
       param: result.param,
     );
     state = PaginationState.data(repoPaginationState);
-
-    // 次のデータがあるかチェック
-    if (repoPaginationState.items.length >= repoPaginationState.totalCount) {
-      hasNext = false;
-    }
   }
 
   /// 初回データの取得
