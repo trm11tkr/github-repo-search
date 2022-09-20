@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RepoPaginationState {
+  bool get hasNext => throw _privateConstructorUsedError;
   int get totalCount => throw _privateConstructorUsedError;
   List<GithubRepo> get items => throw _privateConstructorUsedError;
   RepoSearchRequestParam get param => throw _privateConstructorUsedError;
@@ -31,7 +32,10 @@ abstract class $RepoPaginationStateCopyWith<$Res> {
           RepoPaginationState value, $Res Function(RepoPaginationState) then) =
       _$RepoPaginationStateCopyWithImpl<$Res>;
   $Res call(
-      {int totalCount, List<GithubRepo> items, RepoSearchRequestParam param});
+      {bool hasNext,
+      int totalCount,
+      List<GithubRepo> items,
+      RepoSearchRequestParam param});
 
   $RepoSearchRequestParamCopyWith<$Res> get param;
 }
@@ -47,11 +51,16 @@ class _$RepoPaginationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? hasNext = freezed,
     Object? totalCount = freezed,
     Object? items = freezed,
     Object? param = freezed,
   }) {
     return _then(_value.copyWith(
+      hasNext: hasNext == freezed
+          ? _value.hasNext
+          : hasNext // ignore: cast_nullable_to_non_nullable
+              as bool,
       totalCount: totalCount == freezed
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
@@ -83,7 +92,10 @@ abstract class _$$_RepoPaginationStateCopyWith<$Res>
       __$$_RepoPaginationStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int totalCount, List<GithubRepo> items, RepoSearchRequestParam param});
+      {bool hasNext,
+      int totalCount,
+      List<GithubRepo> items,
+      RepoSearchRequestParam param});
 
   @override
   $RepoSearchRequestParamCopyWith<$Res> get param;
@@ -102,11 +114,16 @@ class __$$_RepoPaginationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? hasNext = freezed,
     Object? totalCount = freezed,
     Object? items = freezed,
     Object? param = freezed,
   }) {
     return _then(_$_RepoPaginationState(
+      hasNext: hasNext == freezed
+          ? _value.hasNext
+          : hasNext // ignore: cast_nullable_to_non_nullable
+              as bool,
       totalCount: totalCount == freezed
           ? _value.totalCount
           : totalCount // ignore: cast_nullable_to_non_nullable
@@ -127,11 +144,15 @@ class __$$_RepoPaginationStateCopyWithImpl<$Res>
 
 class _$_RepoPaginationState implements _RepoPaginationState {
   const _$_RepoPaginationState(
-      {this.totalCount = 0,
+      {this.hasNext = true,
+      this.totalCount = 0,
       final List<GithubRepo> items = const <GithubRepo>[],
       required this.param})
       : _items = items;
 
+  @override
+  @JsonKey()
+  final bool hasNext;
   @override
   @JsonKey()
   final int totalCount;
@@ -148,7 +169,7 @@ class _$_RepoPaginationState implements _RepoPaginationState {
 
   @override
   String toString() {
-    return 'RepoPaginationState(totalCount: $totalCount, items: $items, param: $param)';
+    return 'RepoPaginationState(hasNext: $hasNext, totalCount: $totalCount, items: $items, param: $param)';
   }
 
   @override
@@ -156,6 +177,7 @@ class _$_RepoPaginationState implements _RepoPaginationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RepoPaginationState &&
+            const DeepCollectionEquality().equals(other.hasNext, hasNext) &&
             const DeepCollectionEquality()
                 .equals(other.totalCount, totalCount) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
@@ -165,6 +187,7 @@ class _$_RepoPaginationState implements _RepoPaginationState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(hasNext),
       const DeepCollectionEquality().hash(totalCount),
       const DeepCollectionEquality().hash(_items),
       const DeepCollectionEquality().hash(param));
@@ -178,10 +201,13 @@ class _$_RepoPaginationState implements _RepoPaginationState {
 
 abstract class _RepoPaginationState implements RepoPaginationState {
   const factory _RepoPaginationState(
-      {final int totalCount,
+      {final bool hasNext,
+      final int totalCount,
       final List<GithubRepo> items,
       required final RepoSearchRequestParam param}) = _$_RepoPaginationState;
 
+  @override
+  bool get hasNext;
   @override
   int get totalCount;
   @override
